@@ -7,7 +7,7 @@
 <meta name="description" content="樹根樹洞 — 一個安全、安靜，讓你安放思緒的空間。催眠引導師 Eric Cheng，服務於紐約與台灣的華語來訪者。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500&family=Zen+Kurenaido&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ── Reset ── */
@@ -27,7 +27,8 @@ html { scroll-behavior:smooth; }
   --clay:    #9e7c5a;
 
   --serif-en: 'Cormorant Garamond', Georgia, serif;
-  --serif-zh: 'Noto Serif TC', serif;
+  --serif-zh: 'Zen Kurenaido', serif;
+  --title-zh: 'Zen Maru Gothic', sans-serif;
   --hand:     'Caveat', cursive;
 
   --max: 480px;
@@ -38,8 +39,8 @@ html { scroll-behavior:smooth; }
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif-zh);
-  font-weight: 300;
+  font-family: 'Caveat', 'Zen Kurenaido', serif;
+  font-weight: 400;
   font-size: 15px;
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
@@ -185,10 +186,11 @@ body::before {
 .section:first-of-type { border-top: none; }
 
 .section-eyebrow {
-  font-family: var(--hand);
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  letter-spacing: 0.1em;
+  font-family: var(--title-zh);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+  letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
 }
 
@@ -252,7 +254,7 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  font-family: var(--hand);
+  font-family: var(--title-zh);
   font-size: 1rem;
   color: var(--ink-mid);
   text-decoration: none;
@@ -275,7 +277,7 @@ body::before {
 
 /* ── 2. Story ── */
 .story-title {
-  font-family: var(--hand);
+  font-family: var(--title-zh);
   font-size: 1.8rem;
   color: var(--ink);
   margin-bottom: 0.3rem;
@@ -327,7 +329,7 @@ body::before {
   border: none;
   border-bottom: 1px solid var(--rule);
   padding: 0 0 0.2rem;
-  font-family: var(--hand);
+  font-family: var(--title-zh);
   font-size: 0.95rem;
   color: var(--ink-soft);
   cursor: pointer;
@@ -345,11 +347,12 @@ body::before {
   margin-bottom: 0.2rem;
 }
 .about-role {
-  font-family: var(--serif-en);
-  font-style: italic;
-  font-size: 0.82rem;
-  color: var(--ink-soft);
+  font-family: var(--title-zh);
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--ink-mid);
   letter-spacing: 0.06em;
+  margin-top: 0.2rem;
   margin-bottom: 2rem;
 }
 .creds {
@@ -361,7 +364,8 @@ body::before {
   align-items: baseline;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--paper-3);
-  font-size: 0.82rem;
+  font-size: 1rem;
+  font-family: 'Caveat', 'Zen Kurenaido', serif;
   color: var(--ink-mid);
   line-height: 1.6;
 }
@@ -424,7 +428,7 @@ body::before {
   cursor: pointer;
 }
 .service-name {
-  font-family: var(--serif-zh);
+  font-family: var(--title-zh);
   font-size: 0.97rem;
   font-weight: 400;
   color: var(--ink);
@@ -444,6 +448,38 @@ body::before {
   font-size: 0.75rem;
   color: var(--ink-soft);
   margin-bottom: 0.6rem;
+}
+body.en-mode .story-title-en,
+body.en-mode .num-hint,
+body.en-mode .num-label,
+body.en-mode .services-intro,
+body.en-mode .about-role,
+body.en-mode .service-en,
+body.en-mode .contact-intro {
+  font-family: 'Caveat', cursive;
+  font-style: normal;
+}
+body.en-mode .service-en { display: none; }
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: 'Caveat', cursive;
+}
+body.en-mode {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+}
+body.en-mode .story-title,
+body.en-mode .about-name,
+body.en-mode .section-eyebrow,
+body.en-mode .service-name,
+body.en-mode .about-role,
+body.en-mode .toggle-btn,
+body.en-mode .welcome-cta,
+body.en-mode .welcome-title,
+body.en-mode .cta-btn,
+body.en-mode .num-btn {
+  font-family: 'Caveat', cursive;
 }
 .service-duration {
   font-size: 0.72rem;
@@ -722,7 +758,7 @@ footer {
 
 <!-- Nav -->
 <nav class="nav" id="nav">
-  <a href="#welcome" class="nav-brand">樹根樹洞</a>
+  <a href="#welcome" class="nav-brand">樹根樹洞 · The Roots Hollow</a>
   <div style="display:flex;align-items:center;gap:1rem;">
     <div class="lang-toggle">
       <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
@@ -772,7 +808,6 @@ footer {
   <img src="logo.png" alt="" class="story-logo">
   <h2 class="story-title zh">樹根樹洞的故事</h2>
   <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
-  <p class="story-title-en zh">The Story Behind The Roots Hollow</p>
   <div class="story-body zh">
     <p>「樹根樹洞」的 Logo 設計靈感，來自一次催眠體驗。</p>
     <p>在那次經驗中，一棵大樹出現在畫面中。它與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
@@ -819,13 +854,13 @@ footer {
   <p class="section-eyebrow zh">About · 關於我</p>
   <p class="section-eyebrow en">About</p>
   <h2 class="about-name">Eric Cheng</h2>
-  <p class="about-role zh">催眠引導師 · Hypnosis Practitioner</p>
-  <p class="about-role en">Hypnosis Practitioner · 催眠引導師</p>
+  <p class="about-role zh">內在工作引導者</p>
+  <p class="about-role en">Inner Work Facilitator</p>
   <div class="creds">
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh">催眠引導師 · NGH 認證催眠師（NGH ID#95080）</span><span class="en">Hypnosis Practitioner · NGH Certified Hypnotist (NGH ID#95080)</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh">正念講師 · MBSR 認證減壓課程教師</span><span class="en">Mindfulness Instructor · Certified MBSR Teacher</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh">蒙特梭利教師 · AMS 幼兒教育認證（3–6歲）</span><span class="en">Montessori Teacher · AMS Early Childhood Credential (3–6)</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh">生命藍圖解讀師 · 彩虹數字、人類圖、基因密碼</span><span class="en">Life Blueprint Reader · Rainbow Numerology, Human Design, Gene Keys</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b> · NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b> · NGH Certified Hypnotist (NGH ID#95080)</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b> · MBSR 認證減壓課程教師</span><span class="en"><b>Mindfulness Instructor</b> · Certified MBSR Teacher</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b> · AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b> · AMS Early Childhood Credential (3–6)</span></div>
+    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖解讀師</b> · 彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Blueprint Reader</b> · Rainbow Numerology, Human Design, Gene Keys</span></div>
   </div>
   <div class="about-body zh">
     <p>你好，我是 Eric。</p>
@@ -881,7 +916,7 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name">整合式催眠深層探索</p>
+        <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
         <p class="service-en">Integrated Inner Work</p>
         <p class="service-duration">180 mins</p>
       </div>
@@ -901,7 +936,7 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name">內在小屋探索</p>
+        <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
         <p class="service-en">Inner House Exploration</p>
         <p class="service-duration">120 mins</p>
       </div>
@@ -919,7 +954,7 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name">時間回溯探索</p>
+        <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
         <p class="service-en">Timeline Regression</p>
         <p class="service-duration">120 mins</p>
       </div>
@@ -937,7 +972,7 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name">正念式催眠放鬆</p>
+        <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
         <p class="service-en">Hypnotic Mindful Relaxation</p>
         <p class="service-duration">90 mins</p>
       </div>
@@ -955,7 +990,7 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name">生命藍圖解讀</p>
+        <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
         <p class="service-en">Life Chart Reading</p>
         <p class="service-duration">60 mins</p>
       </div>
@@ -972,20 +1007,14 @@ footer {
 
   <p class="service-note zh">
     ＊ 所有 session 均包含探索前訪談與探索後整合討論<br>
-    ＊ 提供布魯克林居家工作室、曼哈頓金融區晤談室、線上視訊
+    ＊ 居家工作室（Bed-Stuy, Brooklyn）、晤談空間（Fidi Creatives, Manhattan）、遠距線上
   </p>
   <p class="service-note en">
     ＊ All sessions include a pre-session intake and post-session integration discussion<br>
-    ＊ Available at home studio in Brooklyn, office in Manhattan Fidi, or online via Google Meet
+    ＊ Home Studio in Bed-Stuy Brooklyn · Session Space at Fidi Creatives Manhattan · Online via Google Meet
   </p>
 
-  <a href="rainbow-calc.html" target="_blank" class="tool-row">
-    <div class="tool-row-left">
-      <h4>彩虹數字計算器</h4>
-      <p>Rainbow Numerology · 探索你的生命數字藍圖</p>
-    </div>
-    <span class="tool-row-arrow">→</span>
-  </a>
+
 </section>
 
 <!-- 5. Numerology -->
@@ -1001,9 +1030,10 @@ footer {
   <p class="num-label en">Enter your date of birth</p>
   <div class="num-input-row">
     <input type="text" id="numInput" class="num-input" placeholder="1990 / 06 / 15" maxlength="10">
-    <button class="num-btn" onclick="calcNum()">計算</button>
+    <button class="num-btn" onclick="calcNum()"><span class="zh">計算</span><span class="en">Go</span></button>
   </div>
-  <p class="num-hint">格式：年 / 月 / 日</p>
+  <p class="num-hint zh">格式：年 / 月 / 日</p>
+  <p class="num-hint en">Format: YYYY / MM / DD</p>
 
   <div class="num-result" id="numResult">
     <div class="num-result-num" id="numNumber"></div>
@@ -1031,8 +1061,9 @@ footer {
       <span class="c-val"><a href="mailto:eric.hypnotist@gmail.com">eric.hypnotist@gmail.com</a></span>
     </li>
     <li>
-      <span class="c-label">地點</span>
-      <span class="c-val">Brooklyn, NY 11221<br>Fidi Creatives, Manhattan NY 10038<br>線上 / Google Meet</span>
+      <span class="c-label zh">地點</span>
+      <span class="c-label en">Location</span>
+      <span class="c-val">居家工作室 · Bed-Stuy, Brooklyn NY 11221<br>晤談空間 · Fidi Creatives, Manhattan NY 10038<br>遠距線上 · Google Meet</span>
     </li>
   </ul>
 
@@ -1181,7 +1212,17 @@ function calcNum() {
   setTimeout(() => r.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
 }
 
+// Add space between English and Chinese punctuation, and handle input
 document.addEventListener('DOMContentLoaded', () => {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentElement && node.parentElement.tagName !== 'SCRIPT') {
+      node.textContent = node.textContent.replace(/([a-zA-Z0-9])([。，、：；！？])/g, '$1 $2');
+    }
+  });
+
   const inp = document.getElementById('numInput');
   inp.addEventListener('keydown', e => { if (e.key === 'Enter') calcNum(); });
   inp.addEventListener('input', function() {
