@@ -64,6 +64,27 @@ body::before {
   padding: 0 var(--gutter);
 }
 
+/* ── Ruled lines background ── */
+.lined {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1.9em,
+    var(--rule) 1.9em,
+    var(--rule) calc(1.9em + 0.5px)
+  );
+  background-size: 100% 1.9em;
+  background-position: 0 0.95em;
+}
+
+/* ── Hand-drawn SVG decorations ── */
+.deco-branch {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  opacity: 0.25;
+}
+
 /* ── Nav ── */
 .nav {
   position: fixed;
@@ -242,6 +263,7 @@ body::before {
 }
 .welcome-cta:hover { color: var(--ink); border-color: var(--ink-mid); }
 
+/* Branch deco in welcome */
 .welcome-deco {
   position: absolute;
   right: -20px;
@@ -330,7 +352,9 @@ body::before {
   letter-spacing: 0.06em;
   margin-bottom: 2rem;
 }
-.creds { margin-bottom: 2.5rem; }
+.creds {
+  margin-bottom: 2.5rem;
+}
 .cred-item {
   display: flex;
   gap: 0.8rem;
@@ -384,11 +408,13 @@ body::before {
   line-height: 1.9;
   margin-bottom: 2rem;
 }
+
 .service-item {
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--rule);
 }
 .service-item:first-of-type { border-top: 1px solid var(--rule); }
+
 .service-header {
   display: flex;
   justify-content: space-between;
@@ -490,7 +516,11 @@ body::before {
   margin-bottom: 0.5rem;
   font-family: var(--serif-zh);
 }
-.num-input-row { display: flex; gap: 0.6rem; align-items: stretch; }
+.num-input-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: stretch;
+}
 .num-input {
   flex: 1;
   padding: 0.7rem 0;
@@ -517,7 +547,11 @@ body::before {
   white-space: nowrap;
 }
 .num-btn:hover { border-color: var(--ink-mid); color: var(--ink); }
-.num-hint { margin-top: 0.5rem; font-size: 0.7rem; color: var(--ink-soft); }
+.num-hint {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
 .num-result {
   display: none;
   margin-top: 2rem;
@@ -540,7 +574,11 @@ body::before {
   color: var(--ink);
   margin-bottom: 0.8rem;
 }
-.num-result-desc { font-size: 0.88rem; color: var(--ink-mid); line-height: 2; }
+.num-result-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 2;
+}
 .num-result-cta {
   margin-top: 1.5rem;
   font-size: 0.78rem;
@@ -577,6 +615,7 @@ body::before {
 .en { display: none; }
 body.en-mode .zh { display: none; }
 body.en-mode .en { display: block; }
+/* For inline elements */
 span.zh, a.zh { display: inline; }
 span.en, a.en { display: none; }
 body.en-mode span.zh, body.en-mode a.zh { display: none; }
@@ -626,9 +665,15 @@ body.en-mode span.en, body.en-mode a.en { display: inline; }
   letter-spacing: 0.05em;
   transition: all 0.2s;
 }
-.cta-btn-primary { background: var(--ink); color: var(--paper); }
+.cta-btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
 .cta-btn-primary:hover { background: var(--ink-mid); }
-.cta-btn-secondary { border: 1px solid var(--rule); color: var(--ink-mid); }
+.cta-btn-secondary {
+  border: 1px solid var(--rule);
+  color: var(--ink-mid);
+}
 .cta-btn-secondary:hover { border-color: var(--ink-mid); color: var(--ink); }
 
 /* ── Footer ── */
@@ -643,13 +688,32 @@ footer {
   max-width: var(--max);
   margin: 0 auto;
 }
-.footer-brand { font-family: var(--hand); font-size: 1rem; color: var(--ink-soft); }
-.footer-copy { font-size: 0.7rem; color: var(--ink-soft); letter-spacing: 0.04em; }
+.footer-brand {
+  font-family: var(--hand);
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
 
 /* ── Animations ── */
 @keyframes fadeUp {
   from { opacity:0; transform:translateY(10px); }
   to { opacity:1; transform:translateY(0); }
+}
+
+/* ── Decorative ruled lines on some sections ── */
+.section-ruled {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(1.9em * 15px / 15),
+    rgba(207,192,168,0.25) calc(1.9em * 15px / 15),
+    rgba(207,192,168,0.25) calc(1.9em * 15px / 15 + 0.5px)
+  );
 }
 
 </style>
@@ -688,7 +752,7 @@ footer {
 <!-- 1. Welcome -->
 <section class="section" id="welcome" style="padding: 0;">
 <div class="welcome page">
-  <img src="logo.jpeg" alt="樹根樹洞" class="welcome-logo">
+  <img src="logo.png" alt="樹根樹洞" class="welcome-logo">
   <h1 class="welcome-title">The Roots Hollow</h1>
   <p class="welcome-title-zh zh">樹根樹洞</p>
   <div class="welcome-rule"></div>
@@ -696,7 +760,8 @@ footer {
   <p class="welcome-desc en">This is a hollow formed by roots.<br>A safe, quiet space to place the thoughts you cannot carry elsewhere.<br><br>Here, you are invited to share your inner landscape and explore the roots of who you are — without judgment, in absolute confidence.<br><br>When you are ready, tell the hollow what is on your mind.</p>
   <a href="#story" class="welcome-cta zh">進入樹洞 ↓</a>
   <a href="#story" class="welcome-cta en">Enter the Hollow ↓</a>
-  <img src="logo.jpeg" alt="" class="welcome-deco" style="mix-blend-mode:multiply;border-radius:0;">
+
+  <img src="logo.png" alt="" class="welcome-deco" style="mix-blend-mode:multiply;border-radius:0;">
 </div>
 </section>
 
@@ -704,7 +769,7 @@ footer {
 <section class="section page" id="story">
   <p class="section-eyebrow zh">The Space · 緣起</p>
   <p class="section-eyebrow en">The Space</p>
-  <img src="logo.jpeg" alt="" class="story-logo">
+  <img src="logo.png" alt="" class="story-logo">
   <h2 class="story-title zh">樹根樹洞的故事</h2>
   <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
   <p class="story-title-en zh">The Story Behind The Roots Hollow</p>
@@ -816,9 +881,8 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name zh">整合式催眠深層探索</p>
-        <p class="service-name en" style="display:none;">Integrated Inner Work</p>
-        <p class="service-en zh">Integrated Inner Work</p>
+        <p class="service-name">整合式催眠深層探索</p>
+        <p class="service-en">Integrated Inner Work</p>
         <p class="service-duration">180 mins</p>
       </div>
       <div style="text-align:right;">
@@ -837,9 +901,8 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name zh">內在小屋探索</p>
-        <p class="service-name en" style="display:none;">Inner House Exploration</p>
-        <p class="service-en zh">Inner House Exploration</p>
+        <p class="service-name">內在小屋探索</p>
+        <p class="service-en">Inner House Exploration</p>
         <p class="service-duration">120 mins</p>
       </div>
       <div style="text-align:right;">
@@ -856,9 +919,8 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name zh">時間回溯探索</p>
-        <p class="service-name en" style="display:none;">Timeline Regression</p>
-        <p class="service-en zh">Timeline Regression</p>
+        <p class="service-name">時間回溯探索</p>
+        <p class="service-en">Timeline Regression</p>
         <p class="service-duration">120 mins</p>
       </div>
       <div style="text-align:right;">
@@ -875,9 +937,8 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name zh">正念式催眠放鬆</p>
-        <p class="service-name en" style="display:none;">Hypnotic Mindful Relaxation</p>
-        <p class="service-en zh">Hypnotic Mindful Relaxation</p>
+        <p class="service-name">正念式催眠放鬆</p>
+        <p class="service-en">Hypnotic Mindful Relaxation</p>
         <p class="service-duration">90 mins</p>
       </div>
       <div style="text-align:right;">
@@ -894,9 +955,8 @@ footer {
   <div class="service-item">
     <div class="service-header" onclick="toggleService(this)">
       <div>
-        <p class="service-name zh">生命藍圖解讀</p>
-        <p class="service-name en" style="display:none;">Life Chart Reading</p>
-        <p class="service-en zh">Life Chart Reading</p>
+        <p class="service-name">生命藍圖解讀</p>
+        <p class="service-en">Life Chart Reading</p>
         <p class="service-duration">60 mins</p>
       </div>
       <div style="text-align:right;">
@@ -993,6 +1053,7 @@ footer {
 </div>
 
 <script>
+// Nav
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('solid', window.scrollY > 40);
@@ -1009,11 +1070,13 @@ function closeMenu() {
   document.body.style.overflow = '';
 }
 
+// Scroll reveal
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.06 });
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
+// Language toggle
 function setLang(lang) {
   if (lang === 'en') {
     document.body.classList.add('en-mode');
@@ -1026,6 +1089,7 @@ function setLang(lang) {
   }
 }
 
+// Toggle story ZH
 function toggleStoryZh() {
   const el = document.getElementById('storyExpandZh');
   const label = document.getElementById('storyLabelZh');
@@ -1034,6 +1098,8 @@ function toggleStoryZh() {
   label.textContent = open ? '收起' : '繼續閱讀';
   arrow.classList.toggle('up', open);
 }
+
+// Toggle story EN
 function toggleStoryEn() {
   const el = document.getElementById('storyExpandEn');
   const label = document.getElementById('storyLabelEn');
@@ -1042,6 +1108,8 @@ function toggleStoryEn() {
   label.textContent = open ? 'Show less' : 'Read more';
   arrow.classList.toggle('up', open);
 }
+
+// Toggle about ZH
 function toggleAboutZh() {
   const el = document.getElementById('aboutExpandZh');
   const label = document.getElementById('aboutLabelZh');
@@ -1050,6 +1118,8 @@ function toggleAboutZh() {
   label.textContent = open ? '收起' : '繼續閱讀';
   arrow.classList.toggle('up', open);
 }
+
+// Toggle about EN
 function toggleAboutEn() {
   const el = document.getElementById('aboutExpandEn');
   const label = document.getElementById('aboutLabelEn');
@@ -1059,6 +1129,7 @@ function toggleAboutEn() {
   arrow.classList.toggle('up', open);
 }
 
+// Toggle service desc
 function toggleService(header) {
   const desc = header.nextElementSibling;
   const icon = header.querySelector('.service-toggle-icon');
@@ -1066,6 +1137,7 @@ function toggleService(header) {
   icon.classList.toggle('open', open);
 }
 
+// Numerology
 const numData = {
   1: { title: '1 號人　開創者', desc: '你有強烈的自主意識與開創能量，天生傾向走自己的路。你不需要太多人認可，卻也可能在親密關係中不自覺地保持距離。你的課題，是在獨立與連結之間找到自己的節奏。' },
   2: { title: '2 號人　感知者', desc: '你對他人的情緒與需求極為敏銳，是天生的傾聽者與協調者。你渴望深度連結，卻可能因過度配合而迷失自己。你的課題，是在照顧他人的同時，也真正地照顧自己。' },
