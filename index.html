@@ -425,7 +425,6 @@ body::before {
   align-items: baseline;
   gap: 0.8rem;
   margin-bottom: 0.5rem;
-  cursor: pointer;
 }
 .service-name {
   font-family: var(--title-zh);
@@ -491,17 +490,7 @@ body.en-mode .num-btn {
   font-size: 0.85rem;
   color: var(--ink-mid);
   line-height: 1.85;
-  display: none;
 }
-.service-desc.open { display: block; }
-.service-toggle-icon {
-  font-family: var(--hand);
-  font-size: 1rem;
-  color: var(--ink-soft);
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
-.service-toggle-icon.open { transform: rotate(45deg); }
 
 .service-note {
   margin-top: 1.5rem;
@@ -913,15 +902,13 @@ footer {
   <p class="services-intro en">Each session differs in form and depth, reflecting different needs and states.<br>Choose what feels closest to where you are. We can always confirm and adjust together before we begin.</p>
 
   <div class="service-item">
-    <div class="service-header" onclick="toggleService(this)">
+    <div class="service-header">
       <div>
         <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
-        <p class="service-en">Integrated Inner Work</p>
         <p class="service-duration">180 mins</p>
       </div>
       <div style="text-align:right;">
         <p class="service-price-tag">$320</p>
-        <p class="service-toggle-icon">+</p>
       </div>
     </div>
     <div class="service-desc">
@@ -933,15 +920,13 @@ footer {
   </div>
 
   <div class="service-item">
-    <div class="service-header" onclick="toggleService(this)">
+    <div class="service-header">
       <div>
         <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
-        <p class="service-en">Inner House Exploration</p>
         <p class="service-duration">120 mins</p>
       </div>
       <div style="text-align:right;">
         <p class="service-price-tag">$220</p>
-        <p class="service-toggle-icon">+</p>
       </div>
     </div>
     <div class="service-desc">
@@ -951,15 +936,13 @@ footer {
   </div>
 
   <div class="service-item">
-    <div class="service-header" onclick="toggleService(this)">
+    <div class="service-header">
       <div>
         <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
-        <p class="service-en">Timeline Regression</p>
         <p class="service-duration">120 mins</p>
       </div>
       <div style="text-align:right;">
         <p class="service-price-tag">$220</p>
-        <p class="service-toggle-icon">+</p>
       </div>
     </div>
     <div class="service-desc">
@@ -969,15 +952,13 @@ footer {
   </div>
 
   <div class="service-item">
-    <div class="service-header" onclick="toggleService(this)">
+    <div class="service-header">
       <div>
         <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
-        <p class="service-en">Hypnotic Mindful Relaxation</p>
         <p class="service-duration">90 mins</p>
       </div>
       <div style="text-align:right;">
         <p class="service-price-tag">$159</p>
-        <p class="service-toggle-icon">+</p>
       </div>
     </div>
     <div class="service-desc">
@@ -987,15 +968,13 @@ footer {
   </div>
 
   <div class="service-item">
-    <div class="service-header" onclick="toggleService(this)">
+    <div class="service-header">
       <div>
         <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
-        <p class="service-en">Life Chart Reading</p>
         <p class="service-duration">60 mins</p>
       </div>
       <div style="text-align:right;">
         <p class="service-price-tag">$99</p>
-        <p class="service-toggle-icon">+</p>
       </div>
     </div>
     <div class="service-desc">
@@ -1157,14 +1136,6 @@ function toggleAboutEn() {
   const open = el.classList.toggle('open');
   label.textContent = open ? 'Show less' : 'Read more';
   arrow.classList.toggle('up', open);
-}
-
-// Toggle service desc
-function toggleService(header) {
-  const desc = header.nextElementSibling;
-  const icon = header.querySelector('.service-toggle-icon');
-  const open = desc.classList.toggle('open');
-  icon.classList.toggle('open', open);
 }
 
 // Numerology
