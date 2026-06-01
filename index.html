@@ -95,12 +95,21 @@ body::before {
   justify-content: space-between;
   align-items: center;
   padding: 0.9rem var(--gutter);
+  background: #c9d6ba;
+  box-shadow: 0 2px 12px rgba(44,37,26,0.12), 0 1px 3px rgba(44,37,26,0.08);
   transition: background 0.4s;
 }
+.nav::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
 .nav.solid {
-  background: rgba(245,240,232,0.95);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid var(--rule);
+  background: #c9d6ba;
+  border-bottom: none;
 }
 .nav-brand {
   font-family: var(--hand);
@@ -129,20 +138,20 @@ body::before {
 /* Mobile menu */
 .nav-drawer {
   position: fixed;
-  top: 0; right: -100%;
+  top: 0; left: -100%;
   width: 70%;
   max-width: 280px;
   height: 100vh;
   background: var(--paper-2);
   z-index: 200;
   padding: 4rem 2rem 2rem;
-  transition: right 0.4s ease;
-  border-left: 1px solid var(--rule);
+  transition: left 0.4s ease;
+  border-right: 1px solid var(--rule);
 }
-.nav-drawer.open { right: 0; }
+.nav-drawer.open { left: 0; }
 .nav-drawer-close {
   position: absolute;
-  top: 1.2rem; right: 1.2rem;
+  top: 1.2rem; left: 1.2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -157,10 +166,16 @@ body::before {
   gap: 1.8rem;
 }
 .nav-drawer a {
-  font-family: var(--hand);
-  font-size: 1.3rem;
+  font-family: var(--title-zh);
+  font-size: 1.1rem;
+  font-weight: 400;
   color: var(--ink);
   text-decoration: none;
+  letter-spacing: 0.08em;
+}
+body.en-mode .nav-drawer a {
+  font-family: var(--hand);
+  font-size: 1.3rem;
   letter-spacing: 0.05em;
 }
 .nav-overlay {
@@ -756,16 +771,14 @@ footer {
 
 <!-- Nav -->
 <nav class="nav" id="nav">
+  <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
   <a href="#welcome" class="nav-brand">樹根樹洞 · The Roots Hollow</a>
-  <div style="display:flex;align-items:center;gap:1rem;">
-    <div class="lang-toggle">
-      <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
-      <span class="lang-divider">·</span>
-      <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
-    </div>
-    <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
-      <span></span><span></span><span></span>
-    </button>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
+    <span class="lang-divider">·</span>
+    <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
   </div>
 </nav>
 
@@ -774,12 +787,12 @@ footer {
 <div class="nav-drawer" id="drawer">
   <button class="nav-drawer-close" onclick="closeMenu()">✕</button>
   <ul>
-    <li><a href="#welcome" onclick="closeMenu()">歡迎</a></li>
-    <li><a href="#story" onclick="closeMenu()">緣起</a></li>
-    <li><a href="#about" onclick="closeMenu()">關於我</a></li>
-    <li><a href="#services" onclick="closeMenu()">服務</a></li>
-    <li><a href="#numerology" onclick="closeMenu()">數字</a></li>
-    <li><a href="#contact" onclick="closeMenu()">聯繫</a></li>
+    <li><a href="#welcome" onclick="closeMenu()"><span class="zh">歡迎</span><span class="en">Welcome</span></a></li>
+    <li><a href="#story" onclick="closeMenu()"><span class="zh">緣起</span><span class="en">The Space</span></a></li>
+    <li><a href="#about" onclick="closeMenu()"><span class="zh">關於我</span><span class="en">About</span></a></li>
+    <li><a href="#services" onclick="closeMenu()"><span class="zh">服務</span><span class="en">Sessions</span></a></li>
+    <li><a href="#numerology" onclick="closeMenu()"><span class="zh">數字</span><span class="en">Numerology</span></a></li>
+    <li><a href="#contact" onclick="closeMenu()"><span class="zh">聯繫</span><span class="en">Contact</span></a></li>
   </ul>
 </div>
 
