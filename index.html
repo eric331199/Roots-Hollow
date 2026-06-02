@@ -112,25 +112,43 @@ body::before {
   border-bottom: none;
 }
 .nav-logo {
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  mix-blend-mode: normal;
+  background: #f5f0e8;
+  border-radius: 50%;
+  padding: 2px;
   flex-shrink: 0;
 }
-.nav-brand {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+.nav-brand-zh-link {
+  font-family: var(--hand);
+  font-size: 1.2rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.52em;
+  white-space: nowrap;
+}
+.nav-brand-en-link {
   font-family: var(--hand);
   font-size: 1.2rem;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
-  white-space: nowrap;
+  pointer-events: none;
+}
+.nav-center a {
+  pointer-events: all;
 }
 .nav-menu-btn {
   background: none;
@@ -224,7 +242,7 @@ body.en-mode .nav-drawer a {
   text-align: center;
 }
 .section-eyebrow--about {
-  margin-bottom: 0.6rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ── 1. Welcome ── */
@@ -382,6 +400,7 @@ body.en-mode .nav-drawer a {
   font-size: 2rem;
   color: var(--ink);
   margin-bottom: 0.3rem;
+  margin-top: -1.3rem;
   justify-content: center;
 }
 .about-role {
@@ -683,6 +702,7 @@ body.en-mode .num-btn {
 .lang-toggle {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.3rem;
   font-family: var(--hand);
   font-size: 0.85rem;
@@ -816,11 +836,11 @@ footer {
   <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
-  <a href="#welcome" class="nav-brand">
-    <span class="nav-brand-zh">樹根樹洞</span>
+  <div class="nav-center">
+    <a href="#welcome" class="nav-brand-zh-link">樹根樹洞</a>
     <img src="logo.PNG" alt="" class="nav-logo">
-    <span class="nav-brand-en">The Roots Hollow</span>
-  </a>
+    <a href="#welcome" class="nav-brand-en-link">The Roots Hollow</a>
+  </div>
   <div class="lang-toggle">
     <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
     <span class="lang-divider">·</span>
