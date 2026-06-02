@@ -111,12 +111,26 @@ body::before {
   background: #c9d6ba;
   border-bottom: none;
 }
+.nav-logo {
+  height: 20px;
+  width: 20px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  flex-shrink: 0;
+}
 .nav-brand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--hand);
   font-size: 1.2rem;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
 }
 .nav-menu-btn {
   background: none;
@@ -191,7 +205,7 @@ body.en-mode .nav-drawer a {
 
 /* ── Sections ── */
 .section {
-  padding: 5rem 0 4rem;
+  padding: 4rem 0 4rem;
   border-top: 1px solid var(--rule);
   opacity: 0;
   transform: translateY(16px);
@@ -208,6 +222,9 @@ body.en-mode .nav-drawer a {
   letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
   text-align: center;
+}
+.section-eyebrow--about {
+  margin-bottom: 0.6rem;
 }
 
 /* ── 1. Welcome ── */
@@ -297,6 +314,7 @@ body.en-mode .nav-drawer a {
   color: var(--ink);
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  text-align: center;
 }
 .story-title-en {
   font-family: var(--serif-en);
@@ -360,11 +378,11 @@ body.en-mode .nav-drawer a {
   align-items: baseline;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin-bottom: 1.2rem;
   font-family: var(--hand);
   font-size: 2rem;
   color: var(--ink);
-  margin-bottom: 0;
+  margin-bottom: 0.3rem;
+  justify-content: center;
 }
 .about-role {
   font-family: var(--title-zh);
@@ -374,8 +392,29 @@ body.en-mode .nav-drawer a {
   letter-spacing: 0.06em;
   margin: 0;
 }
-.creds {
+.creds-row {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
   margin-bottom: 2.5rem;
+}
+.creds {
+  flex: 1;
+  min-width: 0;
+}
+.cred-photo-placeholder {
+  flex: 1;
+  min-width: 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 10px;
 }
 .cred-item {
   display: flex;
@@ -383,12 +422,13 @@ body.en-mode .nav-drawer a {
   align-items: baseline;
   padding: 0.5rem 0;
   border-bottom: 1px solid var(--paper-3);
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-family: 'Caveat', 'Zen Kurenaido', serif;
   color: var(--ink-mid);
   line-height: 1.6;
 }
 .cred-item:first-child { border-top: 1px solid var(--paper-3); }
+.cred-item > span { display: block; }
 .cred-dot {
   width: 3px; height: 3px;
   border-radius: 50%;
@@ -776,7 +816,11 @@ footer {
   <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
     <span></span><span></span><span></span>
   </button>
-  <a href="#welcome" class="nav-brand">樹根樹洞 · The Roots Hollow</a>
+  <a href="#welcome" class="nav-brand">
+    <span class="nav-brand-zh">樹根樹洞</span>
+    <img src="logo.PNG" alt="" class="nav-logo">
+    <span class="nav-brand-en">The Roots Hollow</span>
+  </a>
   <div class="lang-toggle">
     <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
     <span class="lang-divider">·</span>
@@ -817,7 +861,7 @@ footer {
 <section class="section page" id="story">
   <p class="section-eyebrow zh">The Space · 緣起</p>
   <p class="section-eyebrow en">The Space</p>
-  <img src="logo.PNG" alt="" class="story-logo">
+
   <h2 class="story-title zh">樹根樹洞的故事</h2>
   <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
   <div class="story-body zh">
@@ -863,21 +907,24 @@ footer {
 
 <!-- 3. About -->
 <section class="section page" id="about">
-  <p class="section-eyebrow zh">About · 關於我</p>
-  <p class="section-eyebrow en">About</p>
+  <p class="section-eyebrow section-eyebrow--about zh">About · 關於我</p>
+  <p class="section-eyebrow section-eyebrow--about en">About</p>
   <div class="about-header">
     <h2 class="about-name">Eric Cheng</h2>
-    <p class="about-role zh">內在工作引導者</p>
-    <p class="about-role en">Inner Work Facilitator</p>
   </div>
-  <div class="creds">
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b> · NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b> · NGH Certified Hypnotist (NGH ID#95080)</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b> · MBSR 認證減壓課程教師</span><span class="en"><b>Mindfulness Instructor</b> · Certified MBSR Teacher</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b> · AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b> · AMS Early Childhood Credential (3–6)</span></div>
-    <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖命理師</b> · 彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b> · Rainbow Numerology, Human Design, Gene Keys</span></div>
+  <div class="creds-row">
+    <div class="creds">
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b><br>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br>NGH Certified Hypnotist (NGH ID#95080)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b><br>MBSR 認證減壓課程教師</span><span class="en"><b>Mindfulness Instructor</b><br>Certified MBSR Teacher</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b><br>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br>AMS Early Childhood Credential (3–6)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖命理師</b><br>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br>Numerology, Human Design, Gene Keys</span></div>
+    </div>
+    <div class="cred-photo-placeholder">
+      <img src="eric.JPG" alt="" class="about-photo">
+    </div>
   </div>
   <div class="about-body zh">
-    <p>你好，我是 Eric。</p>
+    <p>你好，我是 Eric Cheng。</p>
     <p>樹根樹洞 The Roots Hollow 的催眠師，也是來訪的內在工作引導者。</p>
     <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來成為幼兒特教與蒙特梭利老師，在教室裡陪伴孩子多年。</p>
     <div class="about-expand" id="aboutExpandZh">
