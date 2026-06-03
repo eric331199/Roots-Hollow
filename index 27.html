@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#c9d6ba">
+<title>樹根樹洞 The Roots Hollow</title>
+<meta name="description" content="樹根樹洞 — 一個安全、安靜，讓你安放思緒的空間。催眠引導師 Eric CH，服務於紐約與台灣的華語來訪者。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500&family=Zen+Kurenaido&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Caveat:wght@400;500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+/* ── Reset ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+/* ── Tokens ── */
+:root {
+  --paper:   #f5f0e8;
+  --paper-2: #ede6d6;
+  --paper-3: #e4dbc8;
+  --ink:     #2c251a;
+  --ink-mid: #6b5c48;
+  --ink-soft:#a0917e;
+  --rule:    #cfc0a8;
+  --moss:    #7a8c65;
+  --clay:    #9e7c5a;
+
+  --serif-en: 'Cormorant Garamond', Georgia, serif;
+  --serif-zh: 'Zen Kurenaido', serif;
+  --title-zh: 'Zen Maru Gothic', sans-serif;
+  --hand:     'Caveat', cursive;
+
+  --max: 480px;
+  --gutter: 1.5rem;
+  color-scheme: light;
+}
+
+/* ── Body ── */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Caveat', 'Zen Kurenaido', serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+
+/* Paper texture overlay */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+
+/* ── Layout ── */
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ── Ruled lines background ── */
+.lined {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 1.9em,
+    var(--rule) 1.9em,
+    var(--rule) calc(1.9em + 0.5px)
+  );
+  background-size: 100% 1.9em;
+  background-position: 0 0.95em;
+}
+
+/* ── Nav ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(0.9rem + env(safe-area-inset-top)) var(--gutter) 0.9rem;
+  background: #c9d6ba;
+  box-shadow: 0 2px 12px rgba(44,37,26,0.12), 0 1px 3px rgba(44,37,26,0.08);
+  transition: background 0.4s;
+}
+.nav::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.nav-logo {
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  background: #f5f0e8;
+  border-radius: 50%;
+  padding: 2px;
+  flex-shrink: 0;
+}
+.nav-brand-zh-link {
+  font-family: 'Zen Kurenaido', serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+.nav-brand-en-link {
+  font-family: 'Caveat', cursive;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+.nav-center a {
+  pointer-events: all;
+}
+.nav-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-menu-btn span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--ink-mid);
+  transition: all 0.3s;
+}
+
+/* Mobile menu */
+.nav-drawer {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 70%;
+  max-width: 280px;
+  height: 100vh;
+  background: var(--paper-2);
+  z-index: 200;
+  padding: 4rem 2rem 2rem;
+  transition: left 0.4s ease;
+  border-right: 1px solid var(--rule);
+}
+.nav-drawer.open { left: 0; }
+.nav-drawer-close {
+  position: absolute;
+  top: 1.2rem; left: 1.2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--hand);
+  font-size: 1.4rem;
+  color: var(--ink-mid);
+}
+.nav-drawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.nav-drawer a {
+  font-family: var(--title-zh);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+}
+body.en-mode .nav-drawer a {
+  font-family: var(--hand);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+}
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,37,26,0.3);
+  z-index: 199;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.nav-overlay.show { opacity:1; pointer-events:all; }
+
+/* ── Sections ── */
+.section {
+  padding: 4rem 0 4rem;
+  border-top: 1px solid var(--rule);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section.page {
+  padding: 4rem var(--gutter);
+}
+.section.visible { opacity:1; transform:translateY(0); }
+.section:first-of-type { border-top: none; }
+
+.section-eyebrow {
+  font-family: var(--title-zh);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--ink-mid);
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.section-eyebrow--about {
+  margin-bottom: 1.5rem;
+}
+
+/* ── 1. Welcome ── */
+.welcome {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 7rem var(--gutter) 5rem;
+  position: relative;
+  overflow: hidden;
+  border-top: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.welcome-logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 2.2rem;
+  mix-blend-mode: multiply;
+}
+
+.welcome-title {
+  font-family: var(--hand);
+  font-size: clamp(2.4rem, 10vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 1.8rem;
+}
+
+.welcome-title-zh {
+  font-family: var(--serif-zh);
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.4rem;
+}
+
+.welcome-rule {
+  width: 28px;
+  height: 1px;
+  background: var(--rule);
+  margin-bottom: 1.8rem;
+}
+
+.welcome-desc {
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  line-height: 2.1;
+  max-width: 320px;
+  margin-bottom: 3rem;
+}
+
+.welcome-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--title-zh);
+  font-size: 1rem;
+  color: var(--ink-mid);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.2rem;
+  transition: color 0.2s, border-color 0.2s;
+  width: fit-content;
+}
+.welcome-cta:hover { color: var(--ink); border-color: var(--ink-mid); }
+
+/* Branch deco in welcome */
+.welcome-deco {
+  position: absolute;
+  right: -20px;
+  bottom: 60px;
+  width: 200px;
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* ── 2. Story ── */
+.story-title {
+  font-family: var(--title-zh);
+  font-size: 1.8rem;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-align: center;
+}
+.story-title-en {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+.story-body {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 2.1;
+}
+body.en-mode .story-body {
+  font-size: 1.2rem;
+}
+body.en-mode .welcome-desc,
+body.en-mode .about-body,
+body.en-mode .services-intro,
+body.en-mode .contact-intro,
+body.en-mode .service-desc {
+  font-size: 1.2rem;
+}
+.story-body p + p { margin-top: 1.2em; }
+.story-expand { display: none; }
+.story-expand.open { display: block; }
+.story-expand p + p { margin-top: 1.2em; }
+
+.story-verse {
+  font-family: var(--serif-zh);
+  font-size: 0.9rem;
+  color: var(--ink);
+  line-height: 2.3;
+  padding-left: 1rem;
+  border-left: 1.5px solid var(--rule);
+  margin: 1.8rem 0 !important;
+}
+
+.story-logo {
+  width: 80px;
+  opacity: 0.85;
+  display: block;
+  margin: 2rem 0;
+  mix-blend-mode: multiply;
+}
+
+/* ── Toggle button ── */
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0 0.2rem;
+  font-family: var(--title-zh);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.toggle-btn:hover { color: var(--ink-mid); }
+.toggle-arrow { transition: transform 0.3s; display: inline-block; }
+.toggle-arrow.up { transform: rotate(180deg); }
+
+/* ── 3. About ── */
+.about-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  font-family: var(--hand);
+  font-size: 2rem;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+  margin-top: -1.3rem;
+  justify-content: center;
+}
+.about-role {
+  font-family: var(--title-zh);
+  font-style: normal;
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+.creds-row {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 2.5rem;
+}
+.cred-sep { display: none; }
+
+@media (max-width: 480px) {
+  .creds-row {
+    flex-direction: column-reverse;
+    gap: 1.2rem;
+  }
+  .cred-photo-placeholder {
+    max-height: 180px;
+    max-width: 160px;
+    margin: 0 auto;
+  }
+  .cred-br { display: none; }
+  .cred-sep { display: inline; }
+}
+.creds {
+  flex: 1;
+  min-width: 0;
+}
+.cred-photo-placeholder {
+  flex: 1;
+  min-width: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 220px;
+}
+.about-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  border-radius: 10px;
+}
+.cred-item {
+  display: flex;
+  gap: 0.3rem;
+  align-items: baseline;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  border-bottom: 1px solid var(--paper-3);
+  font-size: 0.85rem;
+  font-family: 'Caveat', 'Zen Kurenaido', serif;
+  color: var(--ink-mid);
+  line-height: 1.6;
+}
+.cred-item:first-child { border-top: 1px solid var(--paper-3); }
+.cred-item > span { display: block; }
+.cred-dot {
+  display: none;
+}
+.cred-item::before {
+  content: '–';
+  font-family: 'Caveat', cursive;
+  color: var(--clay);
+  flex-shrink: 0;
+  margin-right: 0.2rem;
+}
+.about-body {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 2.1;
+}
+.about-body p + p { margin-top: 1.2em; }
+.about-expand { display: none; }
+.about-expand.open { display: block; }
+.about-expand p + p { margin-top: 1.2em; }
+
+.about-sig {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--hand);
+  font-size: 1.1rem;
+  color: var(--ink-mid);
+  line-height: 1.8;
+}
+.about-sig-sub {
+  font-family: var(--serif-zh);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+  margin-top: 0.3rem;
+  font-style: normal;
+}
+
+/* ── 4. Services ── */
+.services-intro {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+.service-item {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.service-item:first-of-type { border-top: 1px solid var(--rule); }
+
+.service-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+.service-name {
+  font-family: var(--title-zh);
+  font-size: 0.97rem;
+  font-weight: 400;
+  color: var(--ink);
+  flex: 1;
+}
+.service-price-tag {
+  font-family: var(--serif-en);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.service-en {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.6rem;
+}
+body.en-mode .story-title-en,
+body.en-mode .num-hint,
+body.en-mode .num-label,
+body.en-mode .services-intro,
+body.en-mode .about-role,
+body.en-mode .service-en,
+body.en-mode .contact-intro {
+  font-family: 'Caveat', cursive;
+  font-style: normal;
+}
+body.en-mode .service-en { display: none; }
+body.en-mode {
+  font-family: 'Caveat', cursive;
+  font-size: 22px;
+}
+body.en-mode .story-title,
+body.en-mode .about-name,
+body.en-mode .section-eyebrow,
+body.en-mode .service-name,
+body.en-mode .about-role,
+body.en-mode .toggle-btn,
+body.en-mode .welcome-cta,
+body.en-mode .welcome-title,
+body.en-mode .cta-btn,
+body.en-mode .num-btn {
+  font-family: 'Caveat', cursive;
+}
+.service-duration {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.8rem;
+}
+.service-desc {
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  line-height: 1.85;
+}
+
+.service-note {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+
+/* ── Rainbow calc link ── */
+.tool-row {
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+  gap: 1rem;
+}
+.tool-row-left h4 {
+  font-family: var(--serif-zh);
+  font-size: 0.92rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.tool-row-left p {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+.tool-row-arrow {
+  font-family: var(--serif-en);
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  transition: transform 0.3s, color 0.2s;
+}
+.tool-row:hover .tool-row-arrow { transform: translateX(4px); color: var(--ink-mid); }
+
+/* ── 5. Numerology ── */
+.num-title {
+  font-family: var(--title-zh);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--ink);
+}
+.num-label {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+  font-family: var(--serif-zh);
+}
+.num-input-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: stretch;
+}
+.num-input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper-2);
+  font-family: var(--title-zh);
+  font-size: 0.95rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.num-input::placeholder { color: var(--ink-soft); font-size: 0.88rem; }
+.num-input:focus { border-color: var(--ink-mid); }
+.num-btn {
+  padding: 0.6rem 1.2rem;
+  background: none;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  font-family: var(--title-zh);
+  font-size: 0.95rem;
+  color: var(--ink-mid);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.num-btn:hover { border-color: var(--ink-mid); color: var(--ink); }
+.num-hint {
+  margin-top: 0.5rem;
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+.num-result {
+  display: none;
+  margin-top: 2rem;
+  padding-top: 1.8rem;
+  border-top: 1px solid var(--rule);
+  animation: fadeUp 0.5s ease;
+}
+.num-result.show { display: block; }
+.num-result-num {
+  font-family: var(--hand);
+  font-size: 3.5rem;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+}
+.num-result-title {
+  font-family: var(--serif-zh);
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.8rem;
+}
+.num-result-desc {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 2;
+}
+.num-result-cta {
+  margin-top: 1.5rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.9;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--paper-3);
+}
+
+/* ── Language toggle ── */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.3rem;
+  font-family: var(--hand);
+  font-size: 0.85rem;
+}
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--hand);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding: 0.2rem 0.4rem;
+  transition: color 0.2s;
+}
+.lang-btn.active { color: var(--ink); border-bottom: 1px solid var(--ink-mid); }
+.lang-btn:hover { color: var(--ink-mid); }
+.lang-divider { color: var(--rule); font-size: 0.7rem; }
+
+/* Hide/show by language */
+.zh { display: block; }
+.en { display: none; }
+body.en-mode .zh { display: none; }
+body.en-mode .en { display: block; }
+/* For inline elements */
+span.zh, a.zh { display: inline; }
+span.en, a.en { display: none; }
+body.en-mode span.zh, body.en-mode a.zh { display: none; }
+body.en-mode span.en, body.en-mode a.en { display: inline; }
+
+/* ── 6. Contact ── */
+.contact-intro {
+  font-size: 0.92rem;
+  color: var(--ink-mid);
+  line-height: 2.1;
+  margin-bottom: 2.5rem;
+}
+.contact-list { list-style: none; }
+.contact-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--paper-3);
+  font-size: 0.95rem;
+}
+.contact-list li:first-child { border-top: 1px solid var(--paper-3); }
+.c-label {
+  font-family: var(--hand);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  width: 3.5rem;
+  flex-shrink: 0;
+}
+.c-val { color: var(--ink-mid); line-height: 1.7; }
+.c-val a { color: var(--ink-mid); text-decoration: underline; text-underline-offset: 3px; }
+.c-val a:hover { color: var(--ink); }
+
+.contact-cta {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.cta-btn {
+  display: block;
+  padding: 0.85rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--hand);
+  font-size: 1.05rem;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+.cta-btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+.cta-btn-primary:hover { background: var(--ink-mid); }
+.cta-btn-secondary {
+  border: 1px solid var(--rule);
+  color: var(--ink-mid);
+}
+.cta-btn-secondary:hover { border-color: var(--ink-mid); color: var(--ink); }
+
+/* ── Footer ── */
+footer {
+  padding: 3rem var(--gutter);
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.footer-brand {
+  font-family: var(--hand);
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.04em;
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-center">
+    <a href="#welcome" class="nav-brand-zh-link">樹根樹洞</a>
+    <img src="logo.PNG" alt="" class="nav-logo">
+    <a href="#welcome" class="nav-brand-en-link">The Roots Hollow</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
+    <span class="lang-divider">·</span>
+    <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- Drawer -->
+<div class="nav-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="nav-drawer" id="drawer">
+  <button class="nav-drawer-close" onclick="closeMenu()">✕</button>
+  <ul>
+    <li><a href="#welcome" onclick="closeMenu()"><span class="zh">歡迎</span><span class="en">Welcome</span></a></li>
+    <li><a href="#story" onclick="closeMenu()"><span class="zh">緣起</span><span class="en">The Space</span></a></li>
+    <li><a href="#about" onclick="closeMenu()"><span class="zh">關於我</span><span class="en">About</span></a></li>
+    <li><a href="#services" onclick="closeMenu()"><span class="zh">服務</span><span class="en">Sessions</span></a></li>
+    <li><a href="#numerology" onclick="closeMenu()"><span class="zh">數字</span><span class="en">Numerology</span></a></li>
+    <li><a href="#contact" onclick="closeMenu()"><span class="zh">聯繫</span><span class="en">Contact</span></a></li>
+  </ul>
+</div>
+
+<!-- 1. Welcome -->
+<section class="section" id="welcome" style="padding: 0;">
+<div class="welcome page">
+  <p class="welcome-title-zh zh">樹根樹洞</p>
+  <h1 class="welcome-title">The Roots Hollow</h1>
+  <div class="welcome-rule"></div>
+  <p class="welcome-desc zh">這裡是一個由樹根交織而成的樹洞。<br>一個安全、安靜，讓你安放思緒的空間。<br><br>在這裡，邀請你分享內在的風景，<br>探索自我的根源，<br>沒有批判，只有絕對的陪伴。<br><br>當你準備好，跟樹洞說說話吧。</p>
+  <p class="welcome-desc en">This is a hollow formed by roots.<br>A safe, quiet space to place the thoughts you cannot carry elsewhere.<br><br>Here, you are invited to share your inner landscape and explore the roots of who you are — without judgment, in absolute confidence.<br><br>When you are ready, tell the hollow what is on your mind.</p>
+  <a href="#story" class="welcome-cta zh">進入樹洞 ↓</a>
+  <a href="#story" class="welcome-cta en">Enter the Hollow ↓</a>
+
+  <img src="logo.PNG" alt="" class="welcome-deco" style="mix-blend-mode:multiply;border-radius:0;">
+</div>
+</section>
+
+<!-- 2. Story -->
+<section class="section page" id="story">
+  <p class="section-eyebrow zh">The Space · 緣起</p>
+  <p class="section-eyebrow en">The Space</p>
+
+  <h2 class="story-title zh">樹根樹洞的故事</h2>
+  <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
+  <div class="story-body zh">
+    <p>「樹根樹洞」的 Logo 設計靈感，來自一次催眠體驗。</p>
+    <p>在那次經驗中，一棵大樹出現在畫面中。它與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
+    <div class="story-expand" id="storyExpandZh">
+      <p>深植於土裡的樹根，象徵著連結，也代表那些被反覆梳理、誠實面對並整合過的生命經驗。樹根在地底彼此相連，與所有生命交換養分、感知彼此，共同維持整個系統的平衡。</p>
+      <p>這棵大樹只是單純地佇立在那裡，對這片土地上的一切懷著感恩與關愛。大樹的存在，並沒有任何指引或干預，而是靜靜地站在那裡，以陪伴與守護的姿態，讓這個國度中的所有生命，自然地生出安全感。</p>
+      <p>在大樹的背後，也有一個默默守護的存在——月亮。月亮象徵陰性的守護力量，亦提供一種形而上的指引與方向：不是告訴大樹該做什麼，而是在循環與節奏之中，讓它保持對時機與自身位置的覺知。</p>
+      <p class="story-verse">於是，<br>月亮守護著大樹，<br>大樹守護著那片土地。</p>
+      <p>樹洞，代表一個可以讓來訪者安心傾吐的空間。樹根，則象徵各種交織的可能與連結。在樹根樹洞，人們或許會發現日常中未曾留意的細節，讓更多感受浮現，使內在的聲音，在不被干擾的狀態中逐漸清晰。</p>
+      <p>蝴蝶，象徵每一位來訪的你。蝴蝶的出現，並不是被創造的結果，而是當環境準備好之後，自然而然發生的蛻變。</p>
+      <p class="story-verse">歡迎來到樹根樹洞，<br>等你來，和樹洞說說話。</p>
+      <div class="about-sig">
+        — Eric CH
+        <div class="about-sig-sub">樹根樹洞 / The Roots Hollow &nbsp;·&nbsp; 01.15.2026</div>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleStoryZh()">
+      <span id="storyLabelZh">繼續閱讀</span>
+      <span class="toggle-arrow" id="storyArrowZh">↓</span>
+    </button>
+  </div>
+  <div class="story-body en">
+    <p>The logo of The Roots Hollow was born from a hypnosis session — a vision of a great tree living in quiet symbiosis with everything around it. No urgency, no obligation. Only pure care, gratitude, and joy.</p>
+    <p>The roots represent connection — all the experiences that have been examined, faced honestly, and integrated over time. Underground, they reach toward one another, exchanging nourishment and awareness, sustaining the whole.</p>
+    <div class="story-expand" id="storyExpandEn">
+      <p>The tree simply stands. It holds no agenda, offers no instruction. It is present — accompanying, witnessing — and in that presence, everything around it finds its own sense of safety.</p>
+      <p>Behind the tree, the moon watches. A quiet, feminine guardianship. Not directing, but orienting — keeping the tree aware of its place within the larger rhythm.</p>
+      <p class="story-verse">The moon guards the tree.<br>The tree guards the land.</p>
+      <p>The hollow is the space where you can speak freely. The roots are the many threads of possibility and connection. The butterfly is you — not created, but naturally emerging when the conditions are ready.</p>
+      <div class="about-sig">
+        — Eric CH
+        <div class="about-sig-sub">The Roots Hollow &nbsp;·&nbsp; 01.15.2026</div>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleStoryEn()">
+      <span id="storyLabelEn">Read more</span>
+      <span class="toggle-arrow" id="storyArrowEn">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- 3. About -->
+<section class="section page" id="about">
+  <p class="section-eyebrow section-eyebrow--about zh">About · 關於我</p>
+  <p class="section-eyebrow section-eyebrow--about en">About</p>
+  <div class="about-header">
+    <h2 class="about-name">Eric CH</h2>
+  </div>
+  <div class="creds-row">
+    <div class="creds">
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b><br class="cred-br"><span class="cred-sep"> · </span>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br class="cred-br"><span class="cred-sep"> · </span>NGH Certified Hypnotist (NGH ID#95080)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b><br class="cred-br"><span class="cred-sep"> · </span>MBSR 正念減壓課程認證師資</span><span class="en"><b>Mindfulness Instructor</b><br class="cred-br"><span class="cred-sep"> · </span>Certified MBSR Teacher</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b><br class="cred-br"><span class="cred-sep"> · </span>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br class="cred-br"><span class="cred-sep"> · </span>AMS Early Childhood Credential (3–6)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖解讀師</b><br class="cred-br"><span class="cred-sep"> · </span>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br class="cred-br"><span class="cred-sep"> · </span>Numerology, Human Design, Gene Keys</span></div>
+    </div>
+    <div class="cred-photo-placeholder">
+      <img src="eric.JPG" alt="" class="about-photo">
+    </div>
+  </div>
+  <div class="about-body zh">
+    <p>你好，我是 Eric CH，Cheng 的 C，Hypnotist 的 H；</p>
+    <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
+    <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來成為幼兒特教與蒙特梭利老師，在教室裡陪伴孩子和家長多年。</p>
+    <div class="about-expand" id="aboutExpandZh">
+      <p>理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
+      <p>有一件事始終沒變——我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式——一種不把「我的答案」放進別人生命裡的方式。</p>
+      <p>2024 年下半年，我似乎遇到人生中最大的挑戰。人際、感情、人生方向，以及對母親離世的悲傷，同時交疊，讓我長時間處在不快樂的狀態而不自知。理智上，我以為自己理解了這一切的發生，也以為自己已經接受了；但身體與內在好像還是被忽略著。那段時間，我變得容易生氣，作息失衡，明明知道狀況不對，卻只是停留在「腦袋裡的理解」，沒有真正回應、理解、陪伴，甚至接受當時的自己。</p>
+      <p>2024 年底，感恩節前夕，一次重大的人生挫折迫使我停下來，開始面對自己的內在。開始諮商、照顧身體、放慢節奏，也允許自己好好睡覺。</p>
+      <p>在經歷種種困惑以及對未來的迷惘中，我接觸到了催眠。我帶著許多問題進入催眠，但過程中，沒有任何一個問題被直接回答。然而，我卻清楚感覺到自己被療癒了。潛意識讓我看到了當下最重要的課題，讓我釋放原本的糾結，也明白那些問題並不是要我放下或放棄，而是那時候的我不需要再被它們卡住。真正重要的，是回應自己的內在，去做該做的事。</p>
+      <p>也正是在那次體驗中，我覺得我找到了對我來說最完美的助人工具——催眠。在催眠裡，答案不是被告知的，而是由你自己看見的。催眠師不是給答案的人，而是陪你走進內在的伴遊。</p>
+      <p>如果你正在卡住、迷惘，或只是想更靠近自己——歡迎來到樹根樹洞。</p>
+      <div class="about-sig">
+        — Eric CH
+        <div class="about-sig-sub">Certified NGH Hypnotist (ID #95080) &nbsp;·&nbsp; 01.11.2026</div>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleAboutZh()">
+      <span id="aboutLabelZh">繼續閱讀</span>
+      <span class="toggle-arrow" id="aboutArrowZh">↓</span>
+    </button>
+  </div>
+  <div class="about-body en">
+    <p>Hi, I'm Eric CH — C for Cheng, H for Hypnotist.</p>
+    <p>I'm a hypnosis practitioner based in Brooklyn, New York, working primarily with Mandarin-speaking clients in North America and Taiwan.</p>
+    <p>My path has moved through many fields — computer science, business, project management, and years as a Montessori and special education teacher — working closely with children and families in the classroom. Each shaped how I listen, and how I think about people.</p>
+    <div class="about-expand" id="aboutExpandEn">
+      <p>One thing has never changed: I'm drawn to people. I like to observe, to understand, to help. Friends have always come to me with questions. Sometimes people I barely knew would open up about their lives. But I gradually understood that no matter how much I understood someone, I couldn't truly live their experience. I began looking for a different way to help — one that didn't put my answers into someone else's life.</p>
+      <p>In late 2024, I faced the hardest season of my life. Grief over my mother's passing, relationship difficulties, questions about direction — all arriving at once. I thought I had processed it. My body knew otherwise. I became off-balance, and irritable often, unable to move beyond what I understood intellectually but hadn't truly met.</p>
+      <p>That winter, I found hypnosis. I brought many questions into the session. None of them were directly answered. And yet, something shifted. The subconscious showed me what I actually needed to see — not solutions, but clarity about what to do next. The questions didn't disappear. I simply no longer needed to be stuck in them.</p>
+      <p>That's when I knew: this is how I want to work with people. In hypnosis, the answers aren't given to you. They're discovered by you. The practitioner doesn't lead you somewhere — they walk with you as you find your own way in.</p>
+      <p>If you're feeling stuck, uncertain, or simply want to come closer to yourself — you're welcome here.</p>
+      <div class="about-sig">
+        — Eric CH
+        <div class="about-sig-sub">Certified NGH Hypnotist (ID #95080) &nbsp;·&nbsp; 01.11.2026</div>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleAboutEn()">
+      <span id="aboutLabelEn">Read more</span>
+      <span class="toggle-arrow" id="aboutArrowEn">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- 4. Services -->
+<section class="section page" id="services">
+  <p class="section-eyebrow zh">Sessions · 服務</p>
+  <p class="section-eyebrow en">Sessions</p>
+  <p class="services-intro zh">每一次探索，形式與深度各有不同。<br>選擇當下感覺最接近的，我們可以在正式晤談前一起確認與調整。</p>
+  <p class="services-intro en">Each session differs in form and depth, reflecting different needs and states.<br>Choose what feels closest to where you are. We can always confirm and adjust together before we begin.</p>
+
+  <div class="service-item">
+    <div class="service-header">
+      <div>
+        <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
+        <p class="service-duration">180 mins</p>
+      </div>
+      <div style="text-align:right;">
+        <p class="service-price-tag">$320</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">整合「時間」與「空間」兩個維度的完整內在探索。在催眠引導下，先探索你的內在小屋，觀察其象徵結構與內在布局；在適當時刻可能進入時間回溯，觸及某段重要生命經驗；最後將理解帶回當下整合，重新調整內在狀態。</p>
+      <p class="zh" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">如果你希望從多個面向理解一個生命議題，或不確定該從哪個入口開始，這通常是最完整的選擇。</p>
+      <p class="en">A comprehensive inner journey integrating time and space. Under guided hypnosis, you first explore your Inner House and its symbolic structure. At times, the process may move into timeline regression, touching a significant experience. The insights are then brought back to the present for integration and realignment.</p>
+      <p class="en" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">Often recommended if you wish to approach a life theme from multiple dimensions, or if you're unsure where to begin.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <div>
+        <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
+        <p class="service-duration">120 mins</p>
+      </div>
+      <div style="text-align:right;">
+        <p class="service-price-tag">$220</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">以「空間維度」為核心的內在探索。在催眠引導下，你會觀察內在結構、象徵與信念系統，並對當下浮現的狀態進行溫和的理解與整理。本服務主要聚焦於內在空間的覺察與調整，通常不主動展開時間回溯。</p>
+      <p class="en">An exploration centered on the spatial dimension of your inner world. Under guided hypnosis, you observe the symbolic structure and belief systems within your inner landscape. The focus is on present awareness and gentle reorganization, rather than timeline regression.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <div>
+        <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
+        <p class="service-duration">120 mins</p>
+      </div>
+      <div style="text-align:right;">
+        <p class="service-price-tag">$220</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">以「時間維度」為主軸的回溯探索。在催眠引導下，可能觸及今生的重要經驗、前世片段，或由現有信念所延伸的未來意象。透過時間的回望，理解某些生命議題的形成脈絡，為內在帶來鬆動與整合。本服務著重於理解，並非命定式預測。</p>
+      <p class="en">A regression process entering through the dimension of time. Under hypnosis, the session may touch significant experiences from this life, past-life imagery, or symbolic future scenes. By tracing themes across time, insight may emerge into how certain life patterns formed and evolved. The focus is on understanding and integration, not prediction.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <div>
+        <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
+        <p class="service-duration">90 mins</p>
+      </div>
+      <div style="text-align:right;">
+        <p class="service-price-tag">$159</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">結合正念、呼吸與身體覺察，透過催眠式放鬆引導與身體的內在對話。在深度放鬆中，練習以呼吸與覺察滋養身體，並連結內在的光與支持源，作為可帶回日常的自我調節與內在賦能方式。</p>
+      <p class="en">A guided session combining mindfulness, breath, body awareness, and hypnotic relaxation. Through deep relaxation, we use breath and awareness to nourish the body, while reconnecting with inner light and support as a grounded form of self-regulation and empowerment.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <div>
+        <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
+        <p class="service-duration">60 mins</p>
+      </div>
+      <div style="text-align:right;">
+        <p class="service-price-tag">$99</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">透過命盤（生命藍圖）的解讀，協助理解此刻正在展開的人生主題與內在課題。依個案狀態，可能使用人類圖、Gene Keys 或數字系統作為理解工具。此會談著重於看見與理解，不提供命定式預測，也不替你做人生決定。</p>
+      <p class="en">A reflective chart reading session to explore your current life themes and inner patterns. Human Design, Gene Keys, or numerology may be used as tools for insight. This session focuses on clarity and understanding, rather than prediction or decision-making.</p>
+    </div>
+  </div>
+
+  <p class="service-note zh">
+    ＊ 所有 session 均包含探索前訪談與探索後整合討論<br>
+    ＊ 居家工作室（Bed-Stuy, Brooklyn）、晤談空間（Fidi Creatives, Manhattan）、遠距線上
+  </p>
+  <p class="service-note en">
+    ＊ All sessions include a pre-session intake and post-session integration discussion<br>
+    ＊ Home Studio in Bed-Stuy Brooklyn · Session Space at Fidi Creatives Manhattan · Online via Google Meet
+  </p>
+
+
+</section>
+
+<!-- 5. Numerology -->
+<section class="section page" id="numerology">
+  <p class="section-eyebrow zh">Rainbow Numerology · 彩虹數字</p>
+  <p class="section-eyebrow en">Rainbow Numerology</p>
+  <h2 class="num-title zh" style="margin-bottom:0.3rem;">你是幾號人？</h2>
+  <h2 class="num-title en" style="margin-bottom:0.3rem;">What's Your Number?</h2>
+  <p class="story-title-en zh" style="margin-bottom:1.2rem;">Rainbow Numerology</p>
+  <p class="story-title-en en" style="margin-bottom:1.2rem;">Enter your birthdate to find out</p>
+
+  <p class="story-body zh" style="margin-bottom:2rem;">數字學是我目前最常使用的命理工具。你或許聽過生命靈數，聽過「你是幾號人」。透過生日裡八個數字的計算與解讀，可以看見許多你還沒有意識到的自己。先來算算看，你是幾號人。</p>
+  <p class="story-body en" style="margin-bottom:2rem;">Numerology is the tool I reach for most often in my practice. You may have heard of life path numbers — the idea that your birthdate holds a pattern worth paying attention to. Enter your birthday below and see which number you are.</p>
+
+  <p class="num-label zh">輸入你的西元生日</p>
+  <p class="num-label en">Enter your date of birth</p>
+  <div class="num-input-row">
+    <input type="text" id="numInput" class="num-input" placeholder="1990 / 06 / 15" maxlength="10">
+    <button class="num-btn" onclick="calcNum()"><span class="zh">計算</span><span class="en">Go</span></button>
+  </div>
+  <p class="num-hint zh">格式：年 / 月 / 日</p>
+  <p class="num-hint en">Format: YYYY / MM / DD</p>
+
+  <div class="num-result" id="numResult">
+    <div class="num-result-num" id="numNumber"></div>
+    <p class="num-result-title" id="numTitle"></p>
+    <p class="num-result-desc" id="numDesc"></p>
+    <p class="num-result-cta zh">如果你想更深入了解你的彩虹數字，看看不同人生階段的課題、完整的生命藍圖，甚至流年流月的能量走向，歡迎預約一對一解讀。</p>
+    <p class="num-result-cta en">If you'd like to go deeper — exploring your life stages, full chart, or the energy of a particular year or month — feel free to book a one-on-one reading.</p>
+  </div>
+</section>
+
+<!-- 6. Contact -->
+<section class="section page" id="contact">
+  <p class="section-eyebrow zh">Contact · 聯繫</p>
+  <p class="section-eyebrow en">Contact</p>
+  <p class="contact-intro zh">有任何問題，或想了解探索的流程，歡迎直接與我聯繫。服務以中文為主，亦提供英文。</p>
+  <p class="contact-intro en">If you have questions or want to learn more about how a session works, feel free to reach out. Sessions are available in English and Mandarin Chinese.</p>
+
+  <ul class="contact-list">
+    <li>
+      <span class="c-label">IG</span>
+      <span class="c-val"><a href="https://instagram.com/eric.hypnotist" target="_blank">@eric.hypnotist</a></span>
+    </li>
+    <li>
+      <span class="c-label">Email</span>
+      <span class="c-val"><a href="mailto:eric.hypnotist@gmail.com">eric.hypnotist@gmail.com</a></span>
+    </li>
+    <li>
+      <span class="c-label zh">地點</span>
+      <span class="c-label en">Location</span>
+      <span class="c-val zh">居家工作室 · Bed-Stuy, Brooklyn NY 11221<br>晤談空間 · Fidi Creatives, Manhattan NY 10038<br>遠距線上 · Google Meet</span>
+      <span class="c-val en">Home Studio · Bed-Stuy, Brooklyn NY 11221<br>Session Space · Fidi Creatives, Manhattan NY 10038<br>Online · Google Meet</span>
+    </li>
+  </ul>
+
+  <div class="contact-cta">
+    <a href="https://forms.gle/msVbxuxgZskDvA8N8" target="_blank" class="cta-btn cta-btn-primary zh">預約表單 · Service Booking</a>
+    <a href="https://forms.gle/msVbxuxgZskDvA8N8" target="_blank" class="cta-btn cta-btn-primary en">Book a Session</a>
+    <a href="https://calendar.app.google/Brebta4vQ6cbDBZR7" target="_blank" class="cta-btn cta-btn-secondary zh">查看可預約時段</a>
+    <a href="https://calendar.app.google/Brebta4vQ6cbDBZR7" target="_blank" class="cta-btn cta-btn-secondary en">View Available Times</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<div style="max-width:var(--max);margin:0 auto;">
+  <footer>
+    <span class="footer-brand">樹根樹洞 · The Roots Hollow</span>
+    <span class="footer-copy">© 2026 Eric CH · NGH #95080</span>
+  </footer>
+</div>
+
+<script>
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('solid', window.scrollY > 40);
+});
+
+function openMenu() {
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+// Language toggle
+function setLang(lang) {
+  if (lang === 'en') {
+    document.body.classList.add('en-mode');
+    document.getElementById('btnEn').classList.add('active');
+    document.getElementById('btnZh').classList.remove('active');
+  } else {
+    document.body.classList.remove('en-mode');
+    document.getElementById('btnZh').classList.add('active');
+    document.getElementById('btnEn').classList.remove('active');
+  }
+}
+
+// Toggle story ZH
+function toggleStoryZh() {
+  const el = document.getElementById('storyExpandZh');
+  const label = document.getElementById('storyLabelZh');
+  const arrow = document.getElementById('storyArrowZh');
+  const open = el.classList.toggle('open');
+  label.textContent = open ? '收起' : '繼續閱讀';
+  arrow.classList.toggle('up', open);
+}
+
+// Toggle story EN
+function toggleStoryEn() {
+  const el = document.getElementById('storyExpandEn');
+  const label = document.getElementById('storyLabelEn');
+  const arrow = document.getElementById('storyArrowEn');
+  const open = el.classList.toggle('open');
+  label.textContent = open ? 'Show less' : 'Read more';
+  arrow.classList.toggle('up', open);
+}
+
+// Toggle about ZH
+function toggleAboutZh() {
+  const el = document.getElementById('aboutExpandZh');
+  const label = document.getElementById('aboutLabelZh');
+  const arrow = document.getElementById('aboutArrowZh');
+  const open = el.classList.toggle('open');
+  label.textContent = open ? '收起' : '繼續閱讀';
+  arrow.classList.toggle('up', open);
+}
+
+// Toggle about EN
+function toggleAboutEn() {
+  const el = document.getElementById('aboutExpandEn');
+  const label = document.getElementById('aboutLabelEn');
+  const arrow = document.getElementById('aboutArrowEn');
+  const open = el.classList.toggle('open');
+  label.textContent = open ? 'Show less' : 'Read more';
+  arrow.classList.toggle('up', open);
+}
+
+// Numerology
+const numData = {
+  1: { title: '1 號人　開創者', desc: '你有強烈的自主意識與開創能量，天生傾向走自己的路。你不需要太多人認可，卻也可能在親密關係中不自覺地保持距離。你的課題，是在獨立與連結之間找到自己的節奏。' },
+  2: { title: '2 號人　感知者', desc: '你對他人的情緒與需求極為敏銳，是天生的傾聽者與協調者。你渴望深度連結，卻可能因過度配合而迷失自己。你的課題，是在照顧他人的同時，也真正地照顧自己。' },
+  3: { title: '3 號人　表達者', desc: '你充滿表達力與感染力，能透過語言、創意與幽默帶動氣氛。你說出去的話有自己的重量，卻也可能因三分鐘熱度而分散能量。你的課題，是找到真正屬於自己的聲音，並讓它被聽見。' },
+  4: { title: '4 號人　承擔者', desc: '你重視秩序與責任，腳踏實地，是可以被依靠的人。你把事情做好做滿，卻也可能因太在意「應該」而給自己很大的壓力。你的課題，是承擔有選擇，試著給自己多一點彈性。' },
+  5: { title: '5 號人　探索者', desc: '你熱愛自由、變化與新鮮感，對生命充滿好奇。你適應力強，卻可能在選項太多時難以落地，找不到心之所向。你的課題，是在無限的可能性中，好好感覺真正屬於自己的方向。' },
+  6: { title: '6 號人　守護者', desc: '你天生在乎大家好不好，有強烈的責任感與治癒人心的能量。你善於創造和諧，卻可能將別人的需求放在自己之前太久，忽略自己。你的課題，是先愛自己，才能給出健康的愛。' },
+  7: { title: '7 號人　探尋者', desc: '你是深度的思考者，對生命的意義與真理有持續的追問。冥冥之中有力量在引導你，洞見就在那裡——但越用力追，越不來。你的課題，是放下向外追求的姿態，貼近內心，讓宇宙幫忙。' },
+  8: { title: '8 號人　整合者', desc: '你對資源、結構與全局有天生的敏感度，果斷而有效率。你有能力顯化很多，卻也可能在追求成就的路上忽略情感。你的課題，是讓內在的豐盛與外在的成就同步生長，低調與慷慨讓豐盛循環。' },
+  9: { title: '9 號人　智慧者', desc: '你有寬廣的視野與深厚的同理心，走過了、整合了，智慧自然就在那裡。你不需要刻意去教，身邊的人自然感受得到。你的課題，是放下「必須有所貢獻」的責任感，允許自己只是存在，也已足夠。' },
+  11: { title: '11 號人　引路者', desc: '你擁有強烈的直覺與靈性感知力，是天生的啟發者。你像一條橋，能感應到許多人無法捕捉的細微能量。你的課題，是相信自己所感知的，並找到一個方式將它落地表達。' },
+  22: { title: '22 號人　夢想建築師', desc: '你有能力將宏大的願景轉化為實際存在的事物。你的眼光比多數人遠，卻也因此容易感到孤獨或被誤解。你的課題，是不因外界的懷疑而放棄那些只有你能看見的可能性。' },
+  33: { title: '33 號人　無條件的愛', desc: '你是數字中最高層次的療癒能量。你對他人有一種近乎無條件的愛與包容，存在本身就能讓人感到安心。你的課題，是在給予的同時，也守護好自己內在的那一盞燈。' }
+};
+
+function sumD(n) { return String(n).split('').reduce((a,d) => a+parseInt(d), 0); }
+
+function calcNum() {
+  const raw = document.getElementById('numInput').value.trim().replace(/[\s\-\.]/g, '/');
+  const parts = raw.split('/').map(p => parseInt(p)).filter(v => !isNaN(v) && v > 0);
+  if (parts.length !== 3) {
+    const inp = document.getElementById('numInput');
+    inp.style.borderBottomColor = '#a05050';
+    setTimeout(() => { inp.style.borderBottomColor = ''; }, 1500);
+    return;
+  }
+  const [y,m,d] = parts;
+  let total = sumD(y) + sumD(m) + sumD(d);
+  while (total > 9 && total !== 11 && total !== 22 && total !== 33) {
+    total = sumD(total);
+  }
+  const data = numData[total];
+  if (!data) return;
+  document.getElementById('numNumber').textContent = total;
+  document.getElementById('numTitle').textContent = data.title;
+  document.getElementById('numDesc').textContent = data.desc;
+  const r = document.getElementById('numResult');
+  r.classList.remove('show');
+  void r.offsetWidth;
+  r.classList.add('show');
+  setTimeout(() => r.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+}
+
+// Add space between English and Chinese punctuation, and handle input
+document.addEventListener('DOMContentLoaded', () => {
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (node.parentElement && node.parentElement.tagName !== 'SCRIPT') {
+      node.textContent = node.textContent.replace(/([a-zA-Z0-9])([。，、：；！？])/g, '$1 $2');
+    }
+  });
+
+  const inp = document.getElementById('numInput');
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') calcNum(); });
+  inp.addEventListener('input', function() {
+    let v = this.value.replace(/[^\d]/g, '');
+    if (v.length > 4) v = v.slice(0,4) + '/' + v.slice(4);
+    if (v.length > 7) v = v.slice(0,7) + '/' + v.slice(7);
+    if (v.length > 10) v = v.slice(0,10);
+    this.value = v;
+  });
+});
+</script>
+</body>
+</html>
