@@ -47,16 +47,8 @@ body {
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: env(safe-area-inset-top);
 }
-body::after {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: env(safe-area-inset-top);
-  background: #c9d6ba;
-  z-index: 100;
-}
+
 
 /* Paper texture overlay */
 body::before {
@@ -89,14 +81,6 @@ body::before {
   background-position: 0 0.95em;
 }
 
-/* ── Hand-drawn SVG decorations ── */
-.deco-branch {
-  display: block;
-  width: 100%;
-  overflow: visible;
-  opacity: 0.25;
-}
-
 /* ── Nav ── */
 .nav {
   position: fixed;
@@ -118,10 +102,7 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
-.nav.solid {
-  background: #c9d6ba;
-  border-bottom: none;
-}
+
 .nav-logo {
   height: 36px;
   width: 36px;
@@ -581,11 +562,6 @@ body.en-mode .contact-intro {
   font-style: normal;
 }
 body.en-mode .service-en { display: none; }
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--ink);
-  font-family: 'Caveat', cursive;
-}
 body.en-mode {
   font-family: 'Caveat', cursive;
   font-size: 22px;
@@ -860,16 +836,7 @@ footer {
   to { opacity:1; transform:translateY(0); }
 }
 
-/* ── Decorative ruled lines on some sections ── */
-.section-ruled {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent calc(1.9em * 15px / 15),
-    rgba(207,192,168,0.25) calc(1.9em * 15px / 15),
-    rgba(207,192,168,0.25) calc(1.9em * 15px / 15 + 0.5px)
-  );
-}
+
 
 </style>
 </head>
