@@ -127,12 +127,12 @@ body::before {
   font-size: 1.2rem;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: 0.52em;
+  letter-spacing: 0.08em;
   white-space: nowrap;
 }
 .nav-brand-en-link {
   font-family: 'Caveat', cursive;
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: var(--ink);
   text-decoration: none;
@@ -230,6 +230,9 @@ body.en-mode .nav-drawer a {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.section.page {
+  padding: 4rem var(--gutter);
 }
 .section.visible { opacity:1; transform:translateY(0); }
 .section:first-of-type { border-top: none; }
@@ -429,6 +432,21 @@ body.en-mode .service-desc {
   align-items: stretch;
   margin-bottom: 2.5rem;
 }
+.cred-sep { display: none; }
+
+@media (max-width: 480px) {
+  .creds-row {
+    flex-direction: column-reverse;
+    gap: 1.2rem;
+  }
+  .cred-photo-placeholder {
+    max-height: 180px;
+    max-width: 160px;
+    margin: 0 auto;
+  }
+  .cred-br { display: none; }
+  .cred-sep { display: inline; }
+}
 .creds {
   flex: 1;
   min-width: 0;
@@ -450,9 +468,9 @@ body.en-mode .service-desc {
 }
 .cred-item {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.3rem;
   align-items: baseline;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   border-bottom: 1px solid var(--paper-3);
   font-size: 0.85rem;
   font-family: 'Caveat', 'Zen Kurenaido', serif;
@@ -462,11 +480,14 @@ body.en-mode .service-desc {
 .cred-item:first-child { border-top: 1px solid var(--paper-3); }
 .cred-item > span { display: block; }
 .cred-dot {
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: var(--clay);
+  display: none;
+}
+.cred-item::before {
+  content: '–';
+  font-family: 'Caveat', cursive;
+  color: var(--clay);
   flex-shrink: 0;
-  margin-top: 0.55em;
+  margin-right: 0.2rem;
 }
 .about-body {
   font-size: 0.92rem;
@@ -947,10 +968,10 @@ footer {
   </div>
   <div class="creds-row">
     <div class="creds">
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b><br>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br>NGH Certified Hypnotist (NGH ID#95080)</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b><br>MBSR 認證減壓課程教師</span><span class="en"><b>Mindfulness Instructor</b><br>Certified MBSR Teacher</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b><br>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br>AMS Early Childhood Credential (3–6)</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖解讀師</b><br>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br>Numerology, Human Design, Gene Keys</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b><br class="cred-br"><span class="cred-sep"> · </span>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br class="cred-br"><span class="cred-sep"> · </span>NGH Certified Hypnotist (NGH ID#95080)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b><br class="cred-br"><span class="cred-sep"> · </span>MBSR 正念減壓課程認證師資</span><span class="en"><b>Mindfulness Instructor</b><br class="cred-br"><span class="cred-sep"> · </span>Certified MBSR Teacher</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b><br class="cred-br"><span class="cred-sep"> · </span>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br class="cred-br"><span class="cred-sep"> · </span>AMS Early Childhood Credential (3–6)</span></div>
+      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖解讀師</b><br class="cred-br"><span class="cred-sep"> · </span>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br class="cred-br"><span class="cred-sep"> · </span>Numerology, Human Design, Gene Keys</span></div>
     </div>
     <div class="cred-photo-placeholder">
       <img src="eric.JPG" alt="" class="about-photo">
