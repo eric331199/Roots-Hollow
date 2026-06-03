@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>樹根樹洞 The Roots Hollow</title>
 <meta name="description" content="樹根樹洞 — 一個安全、安靜，讓你安放思緒的空間。催眠引導師 Eric CH，服務於紐約與台灣的華語來訪者。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,7 +95,7 @@ body::before {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.9rem var(--gutter);
+  padding: calc(0.9rem + env(safe-area-inset-top)) var(--gutter) 0.9rem;
   background: #c9d6ba;
   box-shadow: 0 2px 12px rgba(44,37,26,0.12), 0 1px 3px rgba(44,37,26,0.08);
   transition: background 0.4s;
@@ -978,7 +978,7 @@ footer {
     </div>
   </div>
   <div class="about-body zh">
-    <p>你好，我是 Eric CH，C 是 Cheng，H 是 Hypnotist；</p>
+    <p>你好，我是 Eric CH，Cheng 的 C，Hypnotist 的 H；</p>
     <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
     <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來成為幼兒特教與蒙特梭利老師，在教室裡陪伴孩子和家長多年。</p>
     <div class="about-expand" id="aboutExpandZh">
