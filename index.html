@@ -8,7 +8,7 @@
 <meta name="description" content="樹根樹洞 — 一個安全、安靜，讓你安放思緒的空間。催眠引導師 Eric CH，服務於紐約與台灣的華語來訪者。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500&family=Zen+Kurenaido&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Caveat:wght@400;500&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500&family=LXGW+WenKai+TC:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 <style>
 
 /* ── Reset ── */
@@ -28,7 +28,7 @@ html { scroll-behavior:smooth; }
   --clay:    #9e7c5a;
 
   --serif-en: 'Cormorant Garamond', Georgia, serif;
-  --serif-zh: 'Zen Kurenaido', serif;
+  --serif-zh: 'LXGW WenKai TC', serif;
   --title-zh: 'Zen Maru Gothic', sans-serif;
   --hand:     'Caveat', cursive;
 
@@ -41,7 +41,7 @@ html { scroll-behavior:smooth; }
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: 'Caveat', 'Zen Kurenaido', serif;
+  font-family: 'Caveat', 'LXGW WenKai TC', serif;
   font-weight: 400;
   font-size: 15px;
   line-height: 1.9;
@@ -114,7 +114,7 @@ body::before {
   flex-shrink: 0;
 }
 .nav-brand-zh-link {
-  font-family: 'Zen Kurenaido', serif;
+  font-family: 'LXGW WenKai TC', serif;
   font-size: 1.2rem;
   color: var(--ink);
   text-decoration: none;
@@ -463,8 +463,8 @@ body.en-mode .service-desc {
   align-items: baseline;
   padding: 0.5rem 0 0.5rem 0.5rem;
   border-bottom: 1px solid var(--paper-3);
-  font-size: 0.85rem;
-  font-family: 'Caveat', 'Zen Kurenaido', serif;
+  font-size: 0.78rem;
+  font-family: 'Caveat', 'LXGW WenKai TC', serif;
   color: var(--ink-mid);
   line-height: 1.6;
 }
@@ -524,17 +524,17 @@ body.en-mode .service-desc {
 
 .service-header {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 0.8rem;
-  margin-bottom: 0.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
 }
 .service-name {
   font-family: var(--title-zh);
   font-size: 0.97rem;
   font-weight: 400;
   color: var(--ink);
-  flex: 1;
 }
 .service-price-tag {
   font-family: var(--serif-en);
@@ -542,7 +542,12 @@ body.en-mode .service-desc {
   font-weight: 400;
   color: var(--ink);
   white-space: nowrap;
-  flex-shrink: 0;
+}
+.service-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-content: center;
 }
 .service-en {
   font-family: var(--serif-en);
@@ -579,9 +584,11 @@ body.en-mode .num-btn {
   font-family: 'Caveat', cursive;
 }
 .service-duration {
-  font-size: 0.72rem;
+  font-family: var(--serif-en);
+  font-size: 1.1rem;
+  font-style: italic;
   color: var(--ink-soft);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
   margin-bottom: 0.8rem;
 }
 .service-desc {
@@ -1007,12 +1014,11 @@ footer {
 
   <div class="service-item">
     <div class="service-header">
-      <div>
-        <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
-        <p class="service-duration">180 mins</p>
-      </div>
-      <div style="text-align:right;">
+      <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
+      <div class="service-meta">
         <p class="service-price-tag">$320</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">180 mins</p>
       </div>
     </div>
     <div class="service-desc">
@@ -1025,12 +1031,11 @@ footer {
 
   <div class="service-item">
     <div class="service-header">
-      <div>
-        <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
-        <p class="service-duration">120 mins</p>
-      </div>
-      <div style="text-align:right;">
+      <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
+      <div class="service-meta">
         <p class="service-price-tag">$220</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">120 mins</p>
       </div>
     </div>
     <div class="service-desc">
@@ -1041,12 +1046,11 @@ footer {
 
   <div class="service-item">
     <div class="service-header">
-      <div>
-        <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
-        <p class="service-duration">120 mins</p>
-      </div>
-      <div style="text-align:right;">
+      <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
+      <div class="service-meta">
         <p class="service-price-tag">$220</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">120 mins</p>
       </div>
     </div>
     <div class="service-desc">
@@ -1057,12 +1061,11 @@ footer {
 
   <div class="service-item">
     <div class="service-header">
-      <div>
-        <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
-        <p class="service-duration">90 mins</p>
-      </div>
-      <div style="text-align:right;">
+      <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
+      <div class="service-meta">
         <p class="service-price-tag">$159</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">90 mins</p>
       </div>
     </div>
     <div class="service-desc">
@@ -1073,17 +1076,16 @@ footer {
 
   <div class="service-item">
     <div class="service-header">
-      <div>
-        <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
-        <p class="service-duration">60 mins</p>
-      </div>
-      <div style="text-align:right;">
+      <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
+      <div class="service-meta">
         <p class="service-price-tag">$99</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">60 mins</p>
       </div>
     </div>
     <div class="service-desc">
-      <p class="zh">透過命盤（生命藍圖）的解讀，協助理解此刻正在展開的人生主題與內在課題。依個案狀態，可能使用人類圖、Gene Keys 或數字系統作為理解工具。此會談著重於看見與理解，不提供命定式預測，也不替你做人生決定。</p>
-      <p class="en">A reflective chart reading session to explore your current life themes and inner patterns. Human Design, Gene Keys, or numerology may be used as tools for insight. This session focuses on clarity and understanding, rather than prediction or decision-making.</p>
+      <p class="zh">透過命盤（生命藍圖）的解讀，協助理解此刻正在展開的人生主題與內在課題。依個案狀態，以彩虹數字學為主，亦可能使用人類圖、Gene Keys 或其他命理工具輔助解讀。此會談著重於看見與理解，不提供命定論斷式的預測，也不替你做人生決定。</p>
+      <p class="en">A chart reading session to explore your current life themes and inner patterns. Rainbow Numerology serves as the primary framework, with Human Design, Gene Keys, or other modalities used as needed. This session is oriented toward insight and understanding — not fatalistic prediction, and not making decisions for you.</p>
     </div>
   </div>
 
