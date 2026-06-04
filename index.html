@@ -1131,7 +1131,278 @@ footer {
   </div>
 </section>
 
-<!-- 6. Contact -->
+<!-- 6. Reviews -->
+<section class="section page" id="reviews">
+
+<style>
+.reviews-track-wrap {
+  margin: 0 calc(-1 * var(--gutter));
+  overflow: hidden;
+}
+.reviews-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.5rem var(--gutter) 1rem;
+  cursor: grab;
+  align-items: stretch;
+}
+.reviews-track:active { cursor: grabbing; }
+.reviews-track::-webkit-scrollbar { display: none; }
+.review-card {
+  flex: 0 0 calc(100% - var(--gutter) * 2);
+  scroll-snap-align: center;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.4rem 1.3rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.review-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.review-stars {
+  font-size: 0.8rem;
+  color: var(--clay);
+  letter-spacing: 0.12em;
+}
+.review-tag-pill {
+  font-family: var(--hand);
+  font-size: 0.7rem;
+  color: var(--moss);
+  background: var(--paper-3);
+  border-radius: 20px;
+  padding: 0.1rem 0.6rem;
+  white-space: nowrap;
+}
+.review-body {
+  font-size: 0.88rem;
+  color: var(--ink-mid);
+  line-height: 2;
+  flex: 1;
+}
+.review-body.truncated {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.review-read-more {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  align-self: flex-start;
+}
+.review-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+}
+.review-author {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.77rem;
+  color: var(--ink-soft);
+}
+.review-date {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.73rem;
+  color: var(--ink-soft);
+  opacity: 0.7;
+}
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+.review-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--rule);
+  transition: background 0.3s;
+  cursor: pointer;
+}
+.review-dot.active { background: var(--ink-soft); }
+.review-submit-wrap {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+.review-submit-link {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.1rem;
+}
+/* sticky overlay */
+.sticky-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(44,37,26,0.35);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  backdrop-filter: blur(2px);
+}
+.sticky-overlay.open { display: flex; }
+.sticky-note {
+  background: #fdf6e3;
+  border-radius: 2px 12px 12px 2px;
+  box-shadow: 3px 4px 18px rgba(44,37,26,0.18), -1px 0 0 #e8d9b5;
+  padding: 1.8rem 1.6rem 1.4rem;
+  max-width: 360px;
+  width: 100%;
+  position: relative;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.sticky-note::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 18px 0 0 18px;
+  border-color: transparent transparent transparent #d4c9a8;
+}
+.sticky-close {
+  position: absolute;
+  top: 0.8rem; right: 0.8rem;
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  line-height: 1;
+}
+.sticky-stars { font-size: 0.8rem; color: var(--clay); letter-spacing: 0.12em; margin-bottom: 0.8rem; }
+.sticky-text { font-family: var(--serif-zh); font-size: 0.9rem; color: var(--ink-mid); line-height: 2.1; margin-bottom: 1rem; white-space: pre-line; }
+.sticky-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
+.sticky-author { font-family: var(--serif-en); font-style: italic; font-size: 0.77rem; color: var(--ink-soft); }
+.sticky-tag-pill { font-family: var(--hand); font-size: 0.7rem; color: var(--moss); background: var(--paper-3); border-radius: 20px; padding: 0.1rem 0.6rem; }
+</style>
+
+  <p class="section-eyebrow zh">來過樹洞的人說</p>
+  <p class="section-eyebrow en">Those Who Visited the Hollow</p>
+
+  <div class="reviews-track-wrap">
+    <div class="reviews-track" id="reviewTrack">
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars">★★★★★</div>
+          <span class="review-tag-pill zh">整合式催眠</span>
+          <span class="review-tag-pill en">Integrated Inner Work</span>
+        </div>
+        <p class="review-body">更可以看到自己內心真實的樣貌。</p>
+        <div class="review-footer">
+          <span class="review-author">— S.Y.</span>
+          <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars">★★★★★</div>
+          <span class="review-tag-pill zh">內在小屋探索</span>
+          <span class="review-tag-pill en">Inner House Exploration</span>
+        </div>
+        <p class="review-body">在感情面那一塊，帶給我很大的發現與衝擊，即使還在半知半解中。</p>
+        <div class="review-footer">
+          <span class="review-author">— 匿名</span>
+          <span class="review-date">Feb 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars">★★★★★</div>
+          <span class="review-tag-pill zh">整合式催眠</span>
+          <span class="review-tag-pill en">Integrated Inner Work</span>
+        </div>
+        <p class="review-body">整體引導很舒服易懂，會後的統整分析也很有幫助。是一場很不一樣的引導體驗，值得一試。</p>
+        <div class="review-footer">
+          <span class="review-author">— R.L.</span>
+          <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars">★★★★★</div>
+          <span class="review-tag-pill zh">時間回溯探索</span>
+          <span class="review-tag-pill en">Timeline Regression</span>
+        </div>
+        <p class="review-body">A quite nice and pleasant experience. Eric's guidance was easy to follow, and the integration session was helpful in connecting the dots.</p>
+        <div class="review-footer">
+          <span class="review-author">— R.</span>
+          <span class="review-date">Apr 2026</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars">★★★★★</div>
+          <span class="review-tag-pill zh">內在小屋探索</span>
+          <span class="review-tag-pill en">Inner House Exploration</span>
+        </div>
+        <p class="review-body truncated">事後回想整個內在小屋的情況，確實反映了目前生活的現況。比較訝異的是對於未來的憧憬，原本認為沒有太多期待，但做完這次探索後還是有些期待的萌芽。庭院裡自覺想要有結出果實的樹，得到的回饋是對社會有實質奉獻的期待，或某種層面還是想成為一個有溫度的給予者。</p>
+        <button class="review-read-more" onclick="openReviewSticky('kh')">閱讀完整分享 ↗</button>
+        <div class="review-footer">
+          <span class="review-author">— K.H.</span>
+          <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="review-dots" id="reviewDots"></div>
+
+  <div class="review-submit-wrap">
+    <a href="https://forms.gle/msVbxuxgZskDvA8N8" target="_blank" class="review-submit-link zh">你也來過樹洞了嗎？寫下你的感受。</a>
+    <a href="https://forms.gle/msVbxuxgZskDvA8N8" target="_blank" class="review-submit-link en">Been to the hollow? Share how it felt.</a>
+  </div>
+</section>
+
+<!-- sticky overlay -->
+<div class="sticky-overlay" id="reviewStickyOverlay" onclick="closeReviewSticky(event)">
+  <div class="sticky-note">
+    <button class="sticky-close" onclick="closeReviewSticky()">✕</button>
+    <div class="sticky-stars">★★★★★</div>
+    <p class="sticky-text" id="stickyReviewText"></p>
+    <div class="sticky-footer">
+      <span class="sticky-author" id="stickyReviewAuthor"></span>
+      <span class="sticky-tag-pill" id="stickyReviewTag"></span>
+    </div>
+  </div>
+</div>
+
+<!-- 7. Contact -->
+
 <section class="section page" id="contact">
   <p class="section-eyebrow zh">Contact · 聯繫</p>
   <p class="section-eyebrow en">Contact</p>
@@ -1313,6 +1584,56 @@ document.addEventListener('DOMContentLoaded', () => {
     this.value = v;
   });
 });
+
+// Reviews
+(function(){
+  const track = document.getElementById('reviewTrack');
+  const dotsWrap = document.getElementById('reviewDots');
+  if (!track) return;
+  const cards = track.querySelectorAll('.review-card');
+  cards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'review-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    dotsWrap.appendChild(d);
+  });
+  const dots = dotsWrap.querySelectorAll('.review-dot');
+  track.addEventListener('scroll', () => {
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let closest = 0, minDist = Infinity;
+    cards.forEach((c, i) => {
+      const dist = Math.abs(c.offsetLeft + c.offsetWidth / 2 - center);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  });
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => { isDown = true; startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; track.style.scrollSnapType = 'none'; });
+  track.addEventListener('mouseleave', () => { isDown = false; track.style.scrollSnapType = 'x mandatory'; });
+  track.addEventListener('mouseup', () => { isDown = false; track.style.scrollSnapType = 'x mandatory'; });
+  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX); });
+})();
+
+const reviewStickyData = {
+  kh: {
+    text: '事後回想整個內在小屋的情況，確實反映了目前生活的現況。比較訝異的是對於未來的憧憬，原本認為沒有太多期待，但做完這次探索後還是有些期待的萌芽。\n\n庭院裡自覺想要有結出果實的樹，得到的回饋是對社會有實質奉獻的期待，或某種層面還是想成為一個有溫度的給予者。再來是前幾世的夢境中，從帶領團隊的印地安青年，某個部份是有著沒有帶後悔的勇敢。感謝你的引導。',
+    author: '— K.H.',
+    tag: '內在小屋探索'
+  }
+};
+function openReviewSticky(key) {
+  const d = reviewStickyData[key];
+  document.getElementById('stickyReviewText').innerText = d.text;
+  document.getElementById('stickyReviewAuthor').innerText = d.author;
+  document.getElementById('stickyReviewTag').innerText = d.tag;
+  document.getElementById('reviewStickyOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReviewSticky(e) {
+  if (e && e.target !== document.getElementById('reviewStickyOverlay') && !e.target.classList.contains('sticky-close')) return;
+  document.getElementById('reviewStickyOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 </script>
 </body>
 </html>
