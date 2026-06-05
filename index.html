@@ -470,7 +470,7 @@ body.en-mode .service-desc {
 }
 .cred-item:first-child { border-top: 1px solid var(--paper-3); }
 .cred-item > span { display: block; }
-.cred-dot { display: none; }
+
 .cred-item::before { content: none; }
 .about-body {
   font-size: 0.92rem;
@@ -912,295 +912,7 @@ footer {
   to { opacity:1; transform:translateY(0); }
 }
 
-
-
-</style>
-</head>
-<body>
-
-<!-- Nav -->
-<nav class="nav" id="nav">
-  <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
-    <span></span><span></span><span></span>
-  </button>
-  <div class="nav-center">
-    <a href="#welcome" class="nav-brand-zh-link">樹根樹洞</a>
-    <img src="logo.PNG" alt="" class="nav-logo">
-    <a href="#welcome" class="nav-brand-en-link">The Roots Hollow</a>
-  </div>
-  <div class="lang-toggle">
-    <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
-    <span class="lang-divider">·</span>
-    <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
-  </div>
-</nav>
-
-<!-- Drawer -->
-<div class="nav-overlay" id="overlay" onclick="closeMenu()"></div>
-<div class="nav-drawer" id="drawer">
-  <button class="nav-drawer-close" onclick="closeMenu()">✕</button>
-  <ul>
-    <li><a href="#welcome" onclick="closeMenu()"><span class="zh">歡迎</span><span class="en">Welcome</span></a></li>
-    <li><a href="#story" onclick="closeMenu()"><span class="zh">緣起</span><span class="en">The Space</span></a></li>
-    <li><a href="#about" onclick="closeMenu()"><span class="zh">關於我</span><span class="en">About</span></a></li>
-    <li><a href="#services" onclick="closeMenu()"><span class="zh">服務</span><span class="en">Sessions</span></a></li>
-    <li><a href="#numerology" onclick="closeMenu()"><span class="zh">數字</span><span class="en">Numerology</span></a></li>
-    <li><a href="#contact" onclick="closeMenu()"><span class="zh">聯繫</span><span class="en">Contact</span></a></li>
-  </ul>
-</div>
-
-<!-- 1. Welcome -->
-<section class="section" id="welcome" style="padding: 0;">
-<div class="welcome page">
-  <p class="welcome-title-zh zh">樹根樹洞</p>
-  <h1 class="welcome-title">The Roots Hollow</h1>
-  <div class="welcome-rule"></div>
-  <p class="welcome-desc zh">這裡是一個由樹根交織而成的樹洞。<br>一個安全、安靜，讓你安放思緒的空間。<br><br>在這裡，邀請你分享內在的風景，<br>探索自我的根源，<br>沒有批判，只有絕對的陪伴。<br><br>當你準備好，<br>來跟樹洞說說話吧！</p>
-  <p class="welcome-desc en">This is a tree hollow formed by roots.<br>A safe, quiet space for the thoughts you cannot carry elsewhere.<br><br>Here, you are invited to share your inner landscape and explore the roots of who you are — without judgment, in absolute confidence.<br><br>When you are ready,<br>the hollow is always here.</p>
-  <a href="#story" class="welcome-cta zh">進入樹洞 ↓</a>
-  <a href="#story" class="welcome-cta en">Enter the Hollow ↓</a>
-
-  <img src="logo.PNG" alt="" class="welcome-deco" style="mix-blend-mode:multiply;border-radius:0;">
-</div>
-</section>
-
-<!-- 2. Story -->
-<section class="section page" id="story">
-  <p class="section-eyebrow zh">The Space · 緣起</p>
-  <p class="section-eyebrow en">The Space</p>
-
-  <h2 class="story-title zh">樹根樹洞的故事</h2>
-  <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
-  <div class="story-body zh">
-    <p>「樹根樹洞」的 Logo 設計靈感，來自一次催眠體驗。</p>
-    <p>在那次經驗中，一棵大樹出現在畫面中。大樹與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
-    <div class="story-expand" id="storyExpandZh">
-      <p style="margin-top:1.2em;">深植於土裡的樹根，象徵著連結，也代表那些被反覆梳理、誠實面對並整合過的生命經驗。樹根在地底彼此相連，與所有生命交換養分、感知彼此，共同維持整個系統的平衡。</p>
-      <p>這棵大樹只是單純地佇立在那裡，對這片土地上的一切懷著感恩與關愛。大樹的存在，並沒有任何指引或干預，而是靜靜地站在那裡，以陪伴與守護的姿態，讓這個國度中的所有生命，自然地感到心安。</p>
-      <p>在大樹的背後，也有一個默默守護的存在——月亮。月亮象徵陰性的守護力量，亦提供一種形而上的指引與方向：不是告訴大樹該做什麼，而是在循環與節奏之中，讓它保持對時機與自身位置的覺知。</p>
-      <p class="story-verse">於是，<br>月亮守護著大樹，<br>大樹守護著那片土地。</p>
-      <p>樹洞，代表一個可以讓來訪者安心傾吐的空間。樹根，則象徵各種交織的可能與連結。在樹根樹洞，人們或許會發現日常中未曾留意的細節，讓更多感受浮現，使內在的聲音，在不被干擾的狀態中逐漸清晰。</p>
-      <p>蝴蝶，象徵每一位來訪的你。蝴蝶的出現，並不是被創造的結果，而是當環境準備好之後，自然而然發生的蛻變。</p>
-      <p class="story-verse">歡迎來到樹根樹洞，<br>等你來，和樹洞說說話。</p>
-      <div class="about-sig">
-        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
-      </div>
-    </div>
-    <button class="toggle-btn" onclick="toggleStoryZh()">
-      <span id="storyLabelZh">繼續閱讀</span>
-      <span class="toggle-arrow" id="storyArrowZh">↓</span>
-    </button>
-  </div>
-  <div class="story-body en">
-    <p>The logo of The Roots Hollow was born from a hypnosis session — a vision of a great tree living in quiet symbiosis with everything around it. No urgency, no obligation. Only pure care, gratitude, and joy.</p>
-    <p>The roots represent connection — all the experiences that have been examined, faced honestly, and integrated over time. Underground, they reach toward one another, exchanging nourishment and awareness, sustaining the whole.</p>
-    <div class="story-expand" id="storyExpandEn">
-      <p>The tree simply stands. It holds no agenda, offers no instruction. It is present — accompanying, witnessing — and in that presence, everything around it finds its own sense of safety.</p>
-      <p>Behind the tree, the moon watches. A quiet, feminine guardianship. Not directing, but orienting — keeping the tree aware of its place within the larger rhythm.</p>
-      <p class="story-verse">The moon guards the tree.<br>The tree guards the land.</p>
-      <p>The hollow is the space where you can speak freely. The roots are the many threads of possibility and connection. The butterfly is you — not created, but naturally emerging when the conditions are ready.</p>
-      <div class="about-sig">
-        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
-      </div>
-    </div>
-    <button class="toggle-btn" onclick="toggleStoryEn()">
-      <span id="storyLabelEn">Read more</span>
-      <span class="toggle-arrow" id="storyArrowEn">↓</span>
-    </button>
-  </div>
-</section>
-
-<!-- 3. About -->
-<section class="section page" id="about">
-  <p class="section-eyebrow section-eyebrow--about zh">About · 關於我</p>
-  <p class="section-eyebrow section-eyebrow--about en">About</p>
-  <div class="about-header">
-    <h2 class="about-name">Eric CH</h2>
-  </div>
-  <div class="creds-row">
-    <div class="creds">
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>催眠引導師</b><br class="cred-br"><span class="cred-sep"> · </span>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br class="cred-br"><span class="cred-sep"> · </span>NGH Certified Hypnotist (NGH ID#95080)</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>正念講師</b><br class="cred-br"><span class="cred-sep"> · </span>MBSR 正念減壓課程認證師資</span><span class="en"><b>Mindfulness Instructor</b><br class="cred-br"><span class="cred-sep"> · </span>Certified MBSR Teacher</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>蒙特梭利教師</b><br class="cred-br"><span class="cred-sep"> · </span>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br class="cred-br"><span class="cred-sep"> · </span>AMS Early Childhood Credential (3–6)</span></div>
-      <div class="cred-item"><div class="cred-dot"></div><span class="zh"><b>生命藍圖解讀師</b><br class="cred-br"><span class="cred-sep"> · </span>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br class="cred-br"><span class="cred-sep"> · </span>Numerology, Human Design, Gene Keys</span></div>
-    </div>
-    <div class="cred-photo-placeholder">
-      <img src="eric.JPG" alt="" class="about-photo">
-    </div>
-  </div>
-  <div class="about-body zh">
-    <p>你好，我是 Eric CH，Cheng 的 C，Hypnotist 的 H；</p>
-    <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
-    <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來又進修了幼兒特教與蒙特梭利，成為幼稚園老師在教室裡陪伴孩子和家長多年。</p>
-    <div class="about-expand" id="aboutExpandZh">
-      <p style="margin-top:1.2em;">理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
-      <p>有一件事始終沒變 — 我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式，一種不把「我的答案」放進別人生命裡的方式。</p>
-      <p>2024 年下半年，我似乎遇到人生中最大的挑戰。人際、感情、職涯、人生方向，以及對母親離世的悲傷，同時交疊，讓我長時間處在不快樂的狀態而不自知。</p>
-      <p>理智上，我以為自己理解這一切的發生，也以為自己已經接受了；但身體與內在好像還是被忽略著。那段時間，我變得容易生氣，作息失衡，明明知道狀況不對，卻只是停留在「腦袋裡的理解」，沒有真正回應、理解、陪伴，甚至接受當時的自己。</p>
-      <p>2024 年底，感恩節前夕，一次重大的工作挫折迫使我停下來，開始面對自己的內在。開始諮商、照顧身體、放慢節奏，也允許自己好好睡覺。</p>
-      <p>在經歷種種困惑以及對未來的迷惘中，我接觸到了催眠。我帶著許多問題進入催眠，但過程中，其實沒有任何一個問題直接被回答。然而，我卻清楚感覺到自己被療癒了。潛意識讓我看到了當下最重要的課題，讓我釋放原本的糾結，也明白那些問題並不是要我放下或放棄，而是那時候的我不需要再被它們卡住。真正重要的，是回應自己的內在，去做該做的事。</p>
-      <p>也正是在那次體驗中，我覺得我找到了對我來說最完美的助人工具 — 催眠。在催眠體驗裡，答案不是被告知的，而是你自己親自看見或感覺到的。</p>
-      <p>催眠師不是給答案的人，而是陪你走進內在的伴遊。<br>如果你正在面臨一些迷惘、困惑、關卡，或只是想更靠近自己 — 歡迎來到樹根樹洞。</p>
-      <div class="about-sig">
-        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
-      </div>
-    </div>
-    <button class="toggle-btn" onclick="toggleAboutZh()">
-      <span id="aboutLabelZh">繼續閱讀</span>
-      <span class="toggle-arrow" id="aboutArrowZh">↓</span>
-    </button>
-  </div>
-  <div class="about-body en">
-    <p>Hi, I'm Eric CH — C for Cheng, H for Hypnotist.</p>
-    <p>I'm a hypnosis practitioner based in Brooklyn, New York, working primarily with Mandarin-speaking clients in North America and Taiwan.</p>
-    <p>My path has moved through many fields — computer science, business, project management, and years as a Montessori and special education teacher — working closely with children and families in the classroom. Each shaped how I listen, and how I think about people.</p>
-    <div class="about-expand" id="aboutExpandEn">
-      <p>One thing has never changed: I'm drawn to people. I like to observe, to understand, to help. Friends have always come to me with questions. Sometimes people I barely knew would open up about their lives. But I gradually understood that no matter how much I understood someone, I couldn't truly live their experience. I began looking for a different way to help — one that didn't put my answers into someone else's life.</p>
-      <p>In late 2024, I faced the hardest season of my life. Grief over my mother's passing, relationship difficulties, questions about direction — all arriving at once. I thought I had processed it. My body knew otherwise. I became off-balance, and irritable often, unable to move beyond what I understood intellectually but hadn't truly met.</p>
-      <p>That winter, I found hypnosis. I brought many questions into the session. None of them were directly answered. And yet, something shifted. The subconscious showed me what I actually needed to see — not solutions, but clarity about what to do next. The questions didn't disappear. I simply no longer needed to be stuck in them.</p>
-      <p>That's when I knew: this is how I want to work with people. In hypnosis, the answers aren't given to you. They're discovered by you. The practitioner doesn't lead you somewhere — they walk with you as you find your own way in.</p>
-      <p>If you're feeling stuck, uncertain, or simply want to come closer to yourself — you're welcome here.</p>
-      <div class="about-sig">
-        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
-      </div>
-    </div>
-    <button class="toggle-btn" onclick="toggleAboutEn()">
-      <span id="aboutLabelEn">Read more</span>
-      <span class="toggle-arrow" id="aboutArrowEn">↓</span>
-    </button>
-  </div>
-</section>
-
-<!-- 4. Services -->
-<section class="section page" id="services">
-  <p class="section-eyebrow zh">Sessions · 服務</p>
-  <p class="section-eyebrow en">Sessions</p>
-  <p class="services-intro zh">每一次探索，形式與深度各有不同。<br>選擇當下感覺最接近的，我們可以在正式晤談前一起確認與調整。</p>
-  <p class="services-intro en">Each session differs in form and depth, reflecting different needs and states.<br>Choose what feels closest to where you are. We can always confirm and adjust together before we begin.</p>
-
-  <div class="service-item">
-    <div class="service-header">
-      <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
-      <div class="service-meta">
-        <p class="service-price-tag"><span class="usd-tag">USD</span> 320</p>
-        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
-        <p class="service-duration">180 mins</p>
-      </div>
-    </div>
-    <div class="service-desc">
-      <p class="zh">整合「時間」與「空間」兩個維度的完整內在探索。在催眠引導下，先探索你的內在小屋，觀察其象徵結構與內在布局；在適當時刻可能進入時間回溯，觸及某段重要生命經驗；最後將理解帶回當下整合，重新調整內在狀態。</p>
-      <p class="zh" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">如果你希望從多個面向理解一個生命議題，或不確定該從哪個入口開始，這通常是最完整的選擇。</p>
-      <p class="en">A comprehensive inner journey integrating time and space. Under guided hypnosis, you first explore your Inner House and its symbolic structure. At times, the process may move into timeline regression, touching a significant experience. The insights are then brought back to the present for integration and realignment.</p>
-      <p class="en" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">Often recommended if you wish to approach a life theme from multiple dimensions, or if you're unsure where to begin.</p>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-header">
-      <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
-      <div class="service-meta">
-        <p class="service-price-tag"><span class="usd-tag">USD</span> 220</p>
-        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
-        <p class="service-duration">120 mins</p>
-      </div>
-    </div>
-    <div class="service-desc">
-      <p class="zh">以「空間維度」為核心的內在探索。在催眠引導下，你會觀察內在結構、象徵與信念系統，並對當下浮現的狀態進行溫和的理解與整理。本服務主要聚焦於內在空間的覺察與調整，通常不主動展開時間回溯。</p>
-      <p class="en">An exploration centered on the spatial dimension of your inner world. Under guided hypnosis, you observe the symbolic structure and belief systems within your inner landscape. The focus is on present awareness and gentle reorganization, rather than timeline regression.</p>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-header">
-      <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
-      <div class="service-meta">
-        <p class="service-price-tag"><span class="usd-tag">USD</span> 220</p>
-        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
-        <p class="service-duration">120 mins</p>
-      </div>
-    </div>
-    <div class="service-desc">
-      <p class="zh">以「時間維度」為主軸的回溯探索。在催眠引導下，可能觸及今生的重要經驗、前世片段，或由現有信念所延伸的未來意象。透過時間的回望，理解某些生命議題的形成脈絡，為內在帶來鬆動與整合。本服務著重於理解，並非命定式預測。</p>
-      <p class="en">A regression process entering through the dimension of time. Under hypnosis, the session may touch significant experiences from this life, past-life imagery, or symbolic future scenes. By tracing themes across time, insight may emerge into how certain life patterns formed and evolved. The focus is on understanding and integration, not prediction.</p>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-header">
-      <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
-      <div class="service-meta">
-        <p class="service-price-tag"><span class="usd-tag">USD</span> 159</p>
-        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
-        <p class="service-duration">90 mins</p>
-      </div>
-    </div>
-    <div class="service-desc">
-      <p class="zh">結合正念、呼吸與身體覺察，透過催眠式放鬆引導與身體的內在對話。在深度放鬆中，練習以呼吸與覺察滋養身體，並連結內在的光與支持源，作為可帶回日常的自我調節與內在賦能方式。</p>
-      <p class="en">A guided session combining mindfulness, breath, body awareness, and hypnotic relaxation. Through deep relaxation, we use breath and awareness to nourish the body, while reconnecting with inner light and support as a grounded form of self-regulation and empowerment.</p>
-    </div>
-  </div>
-
-  <div class="service-item">
-    <div class="service-header">
-      <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
-      <div class="service-meta">
-        <p class="service-price-tag"><span class="usd-tag">USD</span> 99</p>
-        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
-        <p class="service-duration">60 mins</p>
-      </div>
-    </div>
-    <div class="service-desc">
-      <p class="zh">透過命盤（生命藍圖）的解讀，協助理解此刻正在展開的人生主題與內在課題。依個案狀態，以彩虹數字學為主，亦可能使用人類圖、Gene Keys 或其他命理工具輔助解讀。此會談著重於看見與理解，不提供命定論斷式的預測，也不替你做人生決定。</p>
-      <p class="en">A chart reading session to explore your current life themes and inner patterns. Rainbow Numerology serves as the primary framework, with Human Design, Gene Keys, or other modalities used as needed. This session is oriented toward insight and understanding — not fatalistic prediction, and not making decisions for you.</p>
-    </div>
-  </div>
-
-  <p class="service-note zh">
-    ＊ 所有 session 均包含探索前訪談與探索後整合討論<br>
-    ＊ 居家工作室（Bed-Stuy, Brooklyn）、晤談空間（Fidi Creatives, Manhattan）、遠距線上
-  </p>
-  <p class="service-note en">
-    ＊ All sessions include a pre-session intake and post-session integration discussion<br>
-    ＊ Home Studio in Bed-Stuy Brooklyn · Session Space at Fidi Creatives Manhattan · Online via Google Meet
-  </p>
-
-
-</section>
-
-<!-- 5. Numerology -->
-<section class="section page" id="numerology">
-  <p class="section-eyebrow zh">Rainbow Numerology · 彩虹數字</p>
-  <p class="section-eyebrow en">Rainbow Numerology</p>
-  <h2 class="num-title zh" style="margin-bottom:0.3rem;">你是幾號人？</h2>
-  <h2 class="num-title en" style="margin-bottom:0.3rem;">What's Your Number?</h2>
-  <p class="story-title-en zh" style="margin-bottom:1.2rem;">Rainbow Numerology</p>
-  <p class="story-title-en en" style="margin-bottom:1.2rem;">Enter your birthdate to find out</p>
-
-  <p class="story-body zh" style="margin-bottom:2rem;">彩虹數字學是我目前最常使用的命理工具。你或許聽過生命靈數，或「你是幾號人」這個說法，這些都是數字學的概念。透過生日裡八個數字的計算與解讀，可以看見許多你還沒有意識到的自己。先來算算看，你是幾號人。</p>
-  <p class="story-body en" style="margin-bottom:2rem;">Numerology is the tool I reach for most often in my practice. You may have heard of life path numbers — the idea that your birthdate holds a pattern worth paying attention to. Enter your birthday below and see which number you are.</p>
-
-  <p class="num-label zh">輸入你的西元生日</p>
-  <p class="num-label en">Enter your date of birth</p>
-  <div class="num-input-row">
-    <input type="text" id="numInput" class="num-input" placeholder="YYYY / MM / DD" maxlength="10">
-    <button class="num-btn" onclick="calcNum()"><span class="zh">計算</span><span class="en">Go</span></button>
-  </div>
-  <p class="num-hint zh">格式：年 / 月 / 日</p>
-  <p class="num-hint en">Format: YYYY / MM / DD</p>
-
-  <div class="num-result" id="numResult">
-    <div class="num-result-num" id="numNumber"></div>
-    <p class="num-result-title" id="numTitle"></p>
-    <p class="num-result-desc" id="numDesc"></p>
-    <p class="num-result-cta zh">如果你想更深入了解你的彩虹數字，看看不同人生階段的課題、完整的生命藍圖，甚至流年流月的能量走向，歡迎預約一對一解讀。</p>
-    <p class="num-result-cta en">If you'd like to go deeper — exploring your life stages, full chart, or the energy of a particular year or month — feel free to book a one-on-one reading.</p>
-  </div>
-</section>
-
-<!-- 6. Reviews -->
-<section class="section page" id="reviews">
-
-<style>
+/* ── Reviews ── */
 .reviews-track-wrap {
   margin: 0 calc(-1 * var(--gutter));
   overflow: hidden;
@@ -1382,7 +1094,292 @@ footer {
 .sticky-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.8rem; border-top: 1px solid var(--rule); }
 .sticky-author { font-family: var(--serif-en); font-style: italic; font-size: 0.77rem; color: var(--ink-soft); }
 .sticky-tag-pill { font-family: var(--hand); font-size: 0.7rem; color: var(--moss); background: var(--paper-3); border-radius: 20px; padding: 0.1rem 0.6rem; }
+
 </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <button class="nav-menu-btn" onclick="openMenu()" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-center">
+    <a href="#welcome" class="nav-brand-zh-link">樹根樹洞</a>
+    <img src="logo.PNG" alt="" class="nav-logo">
+    <a href="#welcome" class="nav-brand-en-link">The Roots Hollow</a>
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" id="btnZh" onclick="setLang('zh')">中</button>
+    <span class="lang-divider">·</span>
+    <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- Drawer -->
+<div class="nav-overlay" id="overlay" onclick="closeMenu()"></div>
+<div class="nav-drawer" id="drawer">
+  <button class="nav-drawer-close" onclick="closeMenu()">✕</button>
+  <ul>
+    <li><a href="#welcome" onclick="closeMenu()"><span class="zh">歡迎</span><span class="en">Welcome</span></a></li>
+    <li><a href="#story" onclick="closeMenu()"><span class="zh">緣起</span><span class="en">The Space</span></a></li>
+    <li><a href="#about" onclick="closeMenu()"><span class="zh">關於我</span><span class="en">About</span></a></li>
+    <li><a href="#services" onclick="closeMenu()"><span class="zh">服務</span><span class="en">Sessions</span></a></li>
+    <li><a href="#numerology" onclick="closeMenu()"><span class="zh">數字</span><span class="en">Numerology</span></a></li>
+    <li><a href="#contact" onclick="closeMenu()"><span class="zh">聯繫</span><span class="en">Contact</span></a></li>
+  </ul>
+</div>
+
+<!-- 1. Welcome -->
+<section class="section" id="welcome" style="padding: 0;">
+<div class="welcome page">
+  <p class="welcome-title-zh zh">樹根樹洞</p>
+  <h1 class="welcome-title">The Roots Hollow</h1>
+  <div class="welcome-rule"></div>
+  <p class="welcome-desc zh">這裡是一個由樹根交織而成的樹洞。<br>一個安全、安靜，讓你安放思緒的空間。<br><br>在這裡，邀請你分享內在的風景，<br>探索自我的根源，<br>沒有批判，只有絕對的陪伴。<br><br>當你準備好，<br>來跟樹洞說說話吧！</p>
+  <p class="welcome-desc en">This is a tree hollow formed by roots.<br>A safe, quiet space for the thoughts you cannot carry elsewhere.<br><br>Here, you are invited to share your inner landscape and explore the roots of who you are — without judgment, in absolute confidence.<br><br>When you are ready,<br>the hollow is always here.</p>
+  <a href="#story" class="welcome-cta zh">進入樹洞 ↓</a>
+  <a href="#story" class="welcome-cta en">Enter the Hollow ↓</a>
+
+  <img src="logo.PNG" alt="" class="welcome-deco" style="mix-blend-mode:multiply;border-radius:0;">
+</div>
+</section>
+
+<!-- 2. Story -->
+<section class="section page" id="story">
+  <p class="section-eyebrow zh">The Space · 緣起</p>
+  <p class="section-eyebrow en">The Space</p>
+
+  <h2 class="story-title zh">樹根樹洞的故事</h2>
+  <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
+  <div class="story-body zh">
+    <p>「樹根樹洞」的 Logo 設計靈感，來自一次催眠體驗。</p>
+    <p>在那次經驗中，一棵大樹出現在畫面中。大樹與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
+    <div class="story-expand" id="storyExpandZh">
+      <p style="margin-top:1.2em;">深植於土裡的樹根，象徵著連結，也代表那些被反覆梳理、誠實面對並整合過的生命經驗。樹根在地底彼此相連，與所有生命交換養分、感知彼此，共同維持整個系統的平衡。</p>
+      <p>這棵大樹只是單純地佇立在那裡，對這片土地上的一切懷著感恩與關愛。大樹的存在，並沒有任何指引或干預，而是靜靜地站在那裡，以陪伴與守護的姿態，讓這個國度中的所有生命，自然地感到心安。</p>
+      <p>在大樹的背後，也有一個默默守護的存在——月亮。月亮象徵陰性的守護力量，亦提供一種形而上的指引與方向：不是告訴大樹該做什麼，而是在循環與節奏之中，讓它保持對時機與自身位置的覺知。</p>
+      <p class="story-verse">於是，<br>月亮守護著大樹，<br>大樹守護著那片土地。</p>
+      <p>樹洞，代表一個可以讓來訪者安心傾吐的空間。樹根，則象徵各種交織的可能與連結。在樹根樹洞，人們或許會發現日常中未曾留意的細節，讓更多感受浮現，使內在的聲音，在不被干擾的狀態中逐漸清晰。</p>
+      <p>蝴蝶，象徵每一位來訪的你。蝴蝶的出現，並不是被創造的結果，而是當環境準備好之後，自然而然發生的蛻變。</p>
+      <p class="story-verse">歡迎來到樹根樹洞，<br>等你來，和樹洞說說話。</p>
+      <div class="about-sig">
+        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleStoryZh()">
+      <span id="storyLabelZh">繼續閱讀</span>
+      <span class="toggle-arrow" id="storyArrowZh">↓</span>
+    </button>
+  </div>
+  <div class="story-body en">
+    <p>The logo of The Roots Hollow was born from a hypnosis session — a vision of a great tree living in quiet symbiosis with everything around it. No urgency, no obligation. Only pure care, gratitude, and joy.</p>
+    <p>The roots represent connection — all the experiences that have been examined, faced honestly, and integrated over time. Underground, they reach toward one another, exchanging nourishment and awareness, sustaining the whole.</p>
+    <div class="story-expand" id="storyExpandEn">
+      <p>The tree simply stands. It holds no agenda, offers no instruction. It is present — accompanying, witnessing — and in that presence, everything around it finds its own sense of safety.</p>
+      <p>Behind the tree, the moon watches. A quiet, feminine guardianship. Not directing, but orienting — keeping the tree aware of its place within the larger rhythm.</p>
+      <p class="story-verse">The moon guards the tree.<br>The tree guards the land.</p>
+      <p>The hollow is the space where you can speak freely. The roots are the many threads of possibility and connection. The butterfly is you — not created, but naturally emerging when the conditions are ready.</p>
+      <div class="about-sig">
+        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleStoryEn()">
+      <span id="storyLabelEn">Read more</span>
+      <span class="toggle-arrow" id="storyArrowEn">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- 3. About -->
+<section class="section page" id="about">
+  <p class="section-eyebrow section-eyebrow--about zh">About · 關於我</p>
+  <p class="section-eyebrow section-eyebrow--about en">About</p>
+  <div class="about-header">
+    <h2 class="about-name">Eric CH</h2>
+  </div>
+  <div class="creds-row">
+    <div class="creds">
+      <div class="cred-item"><span class="zh"><b>催眠引導師</b><br class="cred-br"><span class="cred-sep"> · </span>NGH 認證催眠師（NGH ID#95080）</span><span class="en"><b>Hypnosis Practitioner</b><br class="cred-br"><span class="cred-sep"> · </span>NGH Certified Hypnotist (NGH ID#95080)</span></div>
+      <div class="cred-item"><span class="zh"><b>正念講師</b><br class="cred-br"><span class="cred-sep"> · </span>MBSR 正念減壓課程認證師資</span><span class="en"><b>Mindfulness Instructor</b><br class="cred-br"><span class="cred-sep"> · </span>Certified MBSR Teacher</span></div>
+      <div class="cred-item"><span class="zh"><b>蒙特梭利教師</b><br class="cred-br"><span class="cred-sep"> · </span>AMS 幼兒教育認證（3–6歲）</span><span class="en"><b>Montessori Teacher</b><br class="cred-br"><span class="cred-sep"> · </span>AMS Early Childhood Credential (3–6)</span></div>
+      <div class="cred-item"><span class="zh"><b>生命藍圖解讀師</b><br class="cred-br"><span class="cred-sep"> · </span>彩虹數字、人類圖、基因密碼</span><span class="en"><b>Life Chart Reader</b><br class="cred-br"><span class="cred-sep"> · </span>Numerology, Human Design, Gene Keys</span></div>
+    </div>
+    <div class="cred-photo-placeholder">
+      <img src="eric.JPG" alt="" class="about-photo">
+    </div>
+  </div>
+  <div class="about-body zh">
+    <p>你好，我是 Eric CH，Cheng 的 C，Hypnotist 的 H；</p>
+    <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
+    <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來又進修了幼兒特教與蒙特梭利，成為幼稚園老師在教室裡陪伴孩子和家長多年。</p>
+    <div class="about-expand" id="aboutExpandZh">
+      <p style="margin-top:1.2em;">理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
+      <p>有一件事始終沒變 — 我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式，一種不把「我的答案」放進別人生命裡的方式。</p>
+      <p>2024 年下半年，我似乎遇到人生中最大的挑戰。人際、感情、職涯、人生方向，以及對母親離世的悲傷，同時交疊，讓我長時間處在不快樂的狀態而不自知。</p>
+      <p>理智上，我以為自己理解這一切的發生，也以為自己已經接受了；但身體與內在好像還是被忽略著。那段時間，我變得容易生氣，作息失衡，明明知道狀況不對，卻只是停留在「腦袋裡的理解」，沒有真正回應、理解、陪伴，甚至接受當時的自己。</p>
+      <p>2024 年底，感恩節前夕，一次重大的工作挫折迫使我停下來，開始面對自己的內在。開始諮商、照顧身體、放慢節奏，也允許自己好好睡覺。</p>
+      <p>在經歷種種困惑以及對未來的迷惘中，我接觸到了催眠。我帶著許多問題進入催眠，但過程中，其實沒有任何一個問題直接被回答。然而，我卻清楚感覺到自己被療癒了。潛意識讓我看到了當下最重要的課題，讓我釋放原本的糾結，也明白那些問題並不是要我放下或放棄，而是那時候的我不需要再被它們卡住。真正重要的，是回應自己的內在，去做該做的事。</p>
+      <p>也正是在那次體驗中，我覺得我找到了對我來說最完美的助人工具 — 催眠。在催眠體驗裡，答案不是被告知的，而是你自己親自看見或感覺到的。</p>
+      <p>催眠師不是給答案的人，而是陪你走進內在的伴遊。<br>如果你正在面臨一些迷惘、困惑、關卡，或只是想更靠近自己 — 歡迎來到樹根樹洞。</p>
+      <div class="about-sig">
+        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleAboutZh()">
+      <span id="aboutLabelZh">繼續閱讀</span>
+      <span class="toggle-arrow" id="aboutArrowZh">↓</span>
+    </button>
+  </div>
+  <div class="about-body en">
+    <p>Hi, I'm Eric CH — C for Cheng, H for Hypnotist.</p>
+    <p>I'm a hypnosis practitioner based in Brooklyn, New York, working primarily with Mandarin-speaking clients in North America and Taiwan.</p>
+    <p>My path has moved through many fields — computer science, business, project management, and years as a Montessori and special education teacher — working closely with children and families in the classroom. Each shaped how I listen, and how I think about people.</p>
+    <div class="about-expand" id="aboutExpandEn">
+      <p>One thing has never changed: I'm drawn to people. I like to observe, to understand, to help. Friends have always come to me with questions. Sometimes people I barely knew would open up about their lives. But I gradually understood that no matter how much I understood someone, I couldn't truly live their experience. I began looking for a different way to help — one that didn't put my answers into someone else's life.</p>
+      <p>In late 2024, I faced the hardest season of my life. Grief over my mother's passing, relationship difficulties, questions about direction — all arriving at once. I thought I had processed it. My body knew otherwise. I became off-balance, and irritable often, unable to move beyond what I understood intellectually but hadn't truly met.</p>
+      <p>That winter, I found hypnosis. I brought many questions into the session. None of them were directly answered. And yet, something shifted. The subconscious showed me what I actually needed to see — not solutions, but clarity about what to do next. The questions didn't disappear. I simply no longer needed to be stuck in them.</p>
+      <p>That's when I knew: this is how I want to work with people. In hypnosis, the answers aren't given to you. They're discovered by you. The practitioner doesn't lead you somewhere — they walk with you as you find your own way in.</p>
+      <p>If you're feeling stuck, uncertain, or simply want to come closer to yourself — you're welcome here.</p>
+      <div class="about-sig">
+        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
+      </div>
+    </div>
+    <button class="toggle-btn" onclick="toggleAboutEn()">
+      <span id="aboutLabelEn">Read more</span>
+      <span class="toggle-arrow" id="aboutArrowEn">↓</span>
+    </button>
+  </div>
+</section>
+
+<!-- 4. Services -->
+<section class="section page" id="services">
+  <p class="section-eyebrow zh">Sessions · 服務</p>
+  <p class="section-eyebrow en">Sessions</p>
+  <p class="services-intro zh">每一次探索，形式與深度各有不同。<br>選擇當下感覺最接近的，我們可以在正式晤談前一起確認與調整。</p>
+  <p class="services-intro en">Each session differs in form and depth, reflecting different needs and states.<br>Choose what feels closest to where you are. We can always confirm and adjust together before we begin.</p>
+
+  <div class="service-item">
+    <div class="service-header">
+      <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
+      <div class="service-meta">
+        <p class="service-price-tag"><span class="usd-tag">USD</span> 320</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">180 mins</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">整合「時間」與「空間」兩個維度的完整內在探索。在催眠引導下，先探索你的內在小屋，觀察其象徵結構與內在布局；在適當時刻可能進入時間回溯，觸及某段重要生命經驗；最後將理解帶回當下整合，重新調整內在狀態。</p>
+      <p class="zh" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">如果你希望從多個面向理解一個生命議題，或不確定該從哪個入口開始，這通常是最完整的選擇。</p>
+      <p class="en">A comprehensive inner journey integrating time and space. Under guided hypnosis, you first explore your Inner House and its symbolic structure. At times, the process may move into timeline regression, touching a significant experience. The insights are then brought back to the present for integration and realignment.</p>
+      <p class="en" style="margin-top:0.8em;font-size:0.8rem;color:var(--ink-soft);">Often recommended if you wish to approach a life theme from multiple dimensions, or if you're unsure where to begin.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
+      <div class="service-meta">
+        <p class="service-price-tag"><span class="usd-tag">USD</span> 220</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">120 mins</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">以「空間維度」為核心的內在探索。在催眠引導下，你會觀察內在結構、象徵與信念系統，並對當下浮現的狀態進行溫和的理解與整理。本服務主要聚焦於內在空間的覺察與調整，通常不主動展開時間回溯。</p>
+      <p class="en">An exploration centered on the spatial dimension of your inner world. Under guided hypnosis, you observe the symbolic structure and belief systems within your inner landscape. The focus is on present awareness and gentle reorganization, rather than timeline regression.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
+      <div class="service-meta">
+        <p class="service-price-tag"><span class="usd-tag">USD</span> 220</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">120 mins</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">以「時間維度」為主軸的回溯探索。在催眠引導下，可能觸及今生的重要經驗、前世片段，或由現有信念所延伸的未來意象。透過時間的回望，理解某些生命議題的形成脈絡，為內在帶來鬆動與整合。本服務著重於理解，並非命定式預測。</p>
+      <p class="en">A regression process entering through the dimension of time. Under hypnosis, the session may touch significant experiences from this life, past-life imagery, or symbolic future scenes. By tracing themes across time, insight may emerge into how certain life patterns formed and evolved. The focus is on understanding and integration, not prediction.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
+      <div class="service-meta">
+        <p class="service-price-tag"><span class="usd-tag">USD</span> 159</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">90 mins</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">結合正念、呼吸與身體覺察，透過催眠式放鬆引導與身體的內在對話。在深度放鬆中，練習以呼吸與覺察滋養身體，並連結內在的光與支持源，作為可帶回日常的自我調節與內在賦能方式。</p>
+      <p class="en">A guided session combining mindfulness, breath, body awareness, and hypnotic relaxation. Through deep relaxation, we use breath and awareness to nourish the body, while reconnecting with inner light and support as a grounded form of self-regulation and empowerment.</p>
+    </div>
+  </div>
+
+  <div class="service-item">
+    <div class="service-header">
+      <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
+      <div class="service-meta">
+        <p class="service-price-tag"><span class="usd-tag">USD</span> 99</p>
+        <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
+        <p class="service-duration">60 mins</p>
+      </div>
+    </div>
+    <div class="service-desc">
+      <p class="zh">透過命盤（生命藍圖）的解讀，協助理解此刻正在展開的人生主題與內在課題。依個案狀態，以彩虹數字學為主，亦可能使用人類圖、Gene Keys 或其他命理工具輔助解讀。此會談著重於看見與理解，不提供命定論斷式的預測，也不替你做人生決定。</p>
+      <p class="en">A chart reading session to explore your current life themes and inner patterns. Rainbow Numerology serves as the primary framework, with Human Design, Gene Keys, or other modalities used as needed. This session is oriented toward insight and understanding — not fatalistic prediction, and not making decisions for you.</p>
+    </div>
+  </div>
+
+  <p class="service-note zh">
+    ＊ 所有 session 均包含探索前訪談與探索後整合討論<br>
+    ＊ 居家工作室（Bed-Stuy, Brooklyn）、晤談空間（Fidi Creatives, Manhattan）、遠距線上
+  </p>
+  <p class="service-note en">
+    ＊ All sessions include a pre-session intake and post-session integration discussion<br>
+    ＊ Home Studio in Bed-Stuy Brooklyn · Session Space at Fidi Creatives Manhattan · Online via Google Meet
+  </p>
+
+
+</section>
+
+<!-- 5. Numerology -->
+<section class="section page" id="numerology">
+  <p class="section-eyebrow zh">Rainbow Numerology · 彩虹數字</p>
+  <p class="section-eyebrow en">Rainbow Numerology</p>
+  <h2 class="num-title zh" style="margin-bottom:0.3rem;">你是幾號人？</h2>
+  <h2 class="num-title en" style="margin-bottom:0.3rem;">What's Your Number?</h2>
+  <p class="story-title-en zh" style="margin-bottom:1.2rem;">Rainbow Numerology</p>
+  <p class="story-title-en en" style="margin-bottom:1.2rem;">Enter your birthdate to find out</p>
+
+  <p class="story-body zh" style="margin-bottom:2rem;">彩虹數字學是我目前最常使用的命理工具。你或許聽過生命靈數，或「你是幾號人」這個說法，這些都是數字學的概念。透過生日裡八個數字的計算與解讀，可以看見許多你還沒有意識到的自己。先來算算看，你是幾號人。</p>
+  <p class="story-body en" style="margin-bottom:2rem;">Numerology is the tool I reach for most often in my practice. You may have heard of life path numbers — the idea that your birthdate holds a pattern worth paying attention to. Enter your birthday below and see which number you are.</p>
+
+  <p class="num-label zh">輸入你的西元生日</p>
+  <p class="num-label en">Enter your date of birth</p>
+  <div class="num-input-row">
+    <input type="text" id="numInput" class="num-input" placeholder="YYYY / MM / DD" maxlength="10">
+    <button class="num-btn" onclick="calcNum()"><span class="zh">計算</span><span class="en">Go</span></button>
+  </div>
+  <p class="num-hint zh">格式：年 / 月 / 日</p>
+  <p class="num-hint en">Format: YYYY / MM / DD</p>
+
+  <div class="num-result" id="numResult">
+    <div class="num-result-num" id="numNumber"></div>
+    <p class="num-result-title" id="numTitle"></p>
+    <p class="num-result-desc" id="numDesc"></p>
+    <p class="num-result-cta zh">如果你想更深入了解你的彩虹數字，看看不同人生階段的課題、完整的生命藍圖，甚至流年流月的能量走向，歡迎預約一對一解讀。</p>
+    <p class="num-result-cta en">If you'd like to go deeper — exploring your life stages, full chart, or the energy of a particular year or month — feel free to book a one-on-one reading.</p>
+  </div>
+</section>
+
+<!-- 6. Reviews -->
+<section class="section page" id="reviews">
 
   <p class="section-eyebrow zh">來過樹洞的人說</p>
   <p class="section-eyebrow en">Those Who Visited the Hollow</p>
@@ -1399,7 +1396,7 @@ footer {
         </div>
         <p class="review-body">從來沒算過命，也沒特別想了解自己的命數，但和 Eric 聊了一次之後覺得很有趣，受益良多。他說的關於我先生的某個特質，準得讓我當場笑出來。有興趣的人可以試試看。</p>
         <div class="review-footer">
-          <span class="review-author">— K.</span>
+          <span class="review-author">— K.C.</span>
           <span class="review-date">Jun 2026</span>
         </div>
       </div>
@@ -1546,27 +1543,31 @@ footer {
         <div class="bflow-num">1</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">填寫預約表單 <span class="bflow-sub">或 Instagram 私訊 @eric.hypnotist</span></p>
+          <p class="bflow-main">填寫預約表單或私訊</p>
+          <p class="bflow-note">透過預約表單或 Instagram 私訊 @eric.hypnotist 與我聯繫。</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">2</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">24 小時內確認時間與細節</p>
+          <p class="bflow-main">確認時間與細節</p>
+          <p class="bflow-note">24 小時內回覆，一起確認時間、方式與探索方向。</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">3</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">72 小時內完成付款 <span class="bflow-sub">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</span></p>
+          <p class="bflow-main">72 小時內完成付款</p>
+          <p class="bflow-note">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">4</div>
         <div class="bflow-content">
           <p class="bflow-main">預約正式成立</p>
+          <p class="bflow-note">收到付款確認後，預約即成立。期待在樹洞見到你。</p>
         </div>
       </div>
     </div>
@@ -1580,27 +1581,31 @@ footer {
         <div class="bflow-num">1</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">Fill out the booking form <span class="bflow-sub">or DM on Instagram @eric.hypnotist</span></p>
+          <p class="bflow-main">Fill out the form or send a DM</p>
+          <p class="bflow-note">Use the booking form or message me on Instagram @eric.hypnotist.</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">2</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">I'll confirm within 24 hours</p>
+          <p class="bflow-main">Confirm time and details</p>
+          <p class="bflow-note">I'll reach out within 24 hours to confirm the session format and timing.</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">3</div>
         <div class="bflow-line"></div>
         <div class="bflow-content">
-          <p class="bflow-main">Full payment within 72 hours <span class="bflow-sub">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</span></p>
+          <p class="bflow-main">Complete payment within 72 hours</p>
+          <p class="bflow-note">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</p>
         </div>
       </div>
       <div class="bflow-step">
         <div class="bflow-num">4</div>
         <div class="bflow-content">
           <p class="bflow-main">Your booking is confirmed</p>
+          <p class="bflow-note">Once payment is received, your spot is secured. See you at the hollow.</p>
         </div>
       </div>
     </div>
@@ -1616,12 +1621,10 @@ footer {
 </section>
 
 <!-- Footer -->
-<div style="max-width:var(--max);margin:0 auto;">
-  <footer>
-    <span class="footer-brand">樹根樹洞 · The Roots Hollow</span>
-    <span class="footer-copy">© 2026 Eric CH · NGH #95080</span>
-  </footer>
-</div>
+<footer>
+  <span class="footer-brand">樹根樹洞 · The Roots Hollow</span>
+  <span class="footer-copy">© 2026 Eric CH · NGH #95080</span>
+</footer>
 
 <script>
 // Nav
