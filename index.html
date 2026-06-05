@@ -1235,9 +1235,22 @@ footer {
   justify-content: space-between;
 }
 .review-stars {
-  font-size: 0.8rem;
+  display: inline-flex;
+  gap: 0.05rem;
+  font-size: 0.85rem;
+}
+.star-wrap {
+  position: relative;
+  display: inline-block;
+  color: var(--rule);
+  line-height: 1;
+}
+.star-wrap .star-fill {
+  position: absolute;
+  top: 0; left: 0;
+  overflow: hidden;
   color: var(--clay);
-  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 .review-tag-pill {
   font-family: var(--hand);
@@ -1377,48 +1390,39 @@ footer {
   <div class="reviews-track-wrap">
     <div class="reviews-track" id="reviewTrack">
 
+      <!-- K. Jun 2026 · 社群 -->
       <div class="review-card">
         <div class="review-card-top">
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag-pill zh">整合式催眠</span>
-          <span class="review-tag-pill en">Integrated Inner Work</span>
+          <div class="review-stars"></div>
+          <span class="review-tag-pill zh">彩虹數字解讀</span>
+          <span class="review-tag-pill en">Life Chart Reading</span>
         </div>
-        <p class="review-body">更可以看到自己內心真實的樣貌。</p>
+        <p class="review-body">從來沒算過命，也沒特別想了解自己的命數，但和 Eric 聊了一次之後覺得很有趣，受益良多。他說的關於我先生的某個特質，準得讓我當場笑出來。有興趣的人可以試試看。</p>
         <div class="review-footer">
-          <span class="review-author">— S.Y.</span>
-          <span class="review-date">Mar 2026</span>
+          <span class="review-author">— K.</span>
+          <span class="review-date">Jun 2026</span>
         </div>
       </div>
 
+      <!-- M.P. May 2026 · 社群 -->
       <div class="review-card">
         <div class="review-card-top">
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag-pill zh">內在小屋探索</span>
-          <span class="review-tag-pill en">Inner House Exploration</span>
+          <div class="review-stars"></div>
+          <span class="review-tag-pill zh">彩虹數字解讀</span>
+          <span class="review-tag-pill en">Life Chart Reading</span>
         </div>
-        <p class="review-body">在感情面那一塊，帶給我很大的發現與衝擊，即使還在半知半解中。</p>
+        <p class="review-body truncated">和 Eric 聊了我們家正面臨的轉折，心裡有些焦慮。Eric 以彩虹數字的角度，為我們各自的方向給了肯定的回應。聊的過程中也談到了自己的過去經歷，Eric 以引導者的角色，提供了不同的切入方式，讓我有機會重新去靠近內心那個小小孩。他也分享了自己的經歷，對我來說幫助很大。</p>
+        <button class="review-read-more" onclick="openReviewSticky('mp')">閱讀完整分享 ↗</button>
         <div class="review-footer">
-          <span class="review-author">— 匿名</span>
-          <span class="review-date">Feb 2026</span>
+          <span class="review-author">— M.P.</span>
+          <span class="review-date">May 2026</span>
         </div>
       </div>
 
+      <!-- R. Apr 2026 · 7/7 = 5/5 -->
       <div class="review-card">
         <div class="review-card-top">
-          <div class="review-stars">★★★★★</div>
-          <span class="review-tag-pill zh">整合式催眠</span>
-          <span class="review-tag-pill en">Integrated Inner Work</span>
-        </div>
-        <p class="review-body">整體引導很舒服易懂，會後的統整分析也很有幫助。是一場很不一樣的引導體驗，值得一試。</p>
-        <div class="review-footer">
-          <span class="review-author">— R.L.</span>
-          <span class="review-date">Mar 2026</span>
-        </div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-card-top">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars" data-score="5"></div>
           <span class="review-tag-pill zh">時間回溯探索</span>
           <span class="review-tag-pill en">Timeline Regression</span>
         </div>
@@ -1429,9 +1433,10 @@ footer {
         </div>
       </div>
 
+      <!-- K.H. Mar 2026 · 6/7 = 4.3/5 -->
       <div class="review-card">
         <div class="review-card-top">
-          <div class="review-stars">★★★★★</div>
+          <div class="review-stars" data-score="4.3"></div>
           <span class="review-tag-pill zh">內在小屋探索</span>
           <span class="review-tag-pill en">Inner House Exploration</span>
         </div>
@@ -1440,6 +1445,48 @@ footer {
         <div class="review-footer">
           <span class="review-author">— K.H.</span>
           <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+      <!-- R.L. Mar 2026 · 7/7 = 5/5 -->
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars" data-score="5"></div>
+          <span class="review-tag-pill zh">整合式催眠</span>
+          <span class="review-tag-pill en">Integrated Inner Work</span>
+        </div>
+        <p class="review-body">整體引導很舒服易懂，會後的統整分析也很有幫助。是一場很不一樣的引導體驗，值得一試。</p>
+        <div class="review-footer">
+          <span class="review-author">— R.L.</span>
+          <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+      <!-- S.Y. Mar 2026 · 7/7 = 5/5 -->
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars" data-score="5"></div>
+          <span class="review-tag-pill zh">整合式催眠</span>
+          <span class="review-tag-pill en">Integrated Inner Work</span>
+        </div>
+        <p class="review-body">更可以看到自己內心真實的樣貌。</p>
+        <div class="review-footer">
+          <span class="review-author">— S.Y.</span>
+          <span class="review-date">Mar 2026</span>
+        </div>
+      </div>
+
+      <!-- 匿名 Feb 2026 · 7/7 = 5/5 -->
+      <div class="review-card">
+        <div class="review-card-top">
+          <div class="review-stars" data-score="5"></div>
+          <span class="review-tag-pill zh">內在小屋探索</span>
+          <span class="review-tag-pill en">Inner House Exploration</span>
+        </div>
+        <p class="review-body">在感情面那一塊，帶給我很大的發現與衝擊，即使還在半知半解中。</p>
+        <div class="review-footer">
+          <span class="review-author">— 匿名</span>
+          <span class="review-date">Feb 2026</span>
         </div>
       </div>
 
@@ -1719,6 +1766,21 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Reviews stars
+function renderReviewStars() {
+  document.querySelectorAll('.review-stars[data-score]').forEach(el => {
+    const score = parseFloat(el.dataset.score);
+    const max = 5;
+    let html = '';
+    for (let i = 1; i <= max; i++) {
+      const fill = Math.min(1, Math.max(0, score - (i - 1)));
+      html += `<span class="star-wrap">★<span class="star-fill" style="width:${fill * 100}%">★</span></span>`;
+    }
+    el.innerHTML = html;
+  });
+}
+renderReviewStars();
+
 // Reviews
 (function(){
   const track = document.getElementById('reviewTrack');
@@ -1753,6 +1815,11 @@ const reviewStickyData = {
     text: '事後回想整個內在小屋的情況，確實反映了目前生活的現況。比較訝異的是對於未來的憧憬，原本認為沒有太多期待，但做完這次探索後還是有些期待的萌芽。\n\n庭院裡自覺想要有結出果實的樹，得到的回饋是對社會有實質奉獻的期待，或某種層面還是想成為一個有溫度的給予者。再來是前幾世的夢境中，從帶領團隊的印地安青年，某個部份是有著沒有帶後悔的勇敢。感謝你的引導。',
     author: '— K.H.',
     tag: '內在小屋探索'
+  },
+  mp: {
+    text: '和 Eric 聊了我們家正面臨的轉折，心裡有些焦慮。Eric 以彩虹數字的角度，為我們各自的方向給了肯定的回應。\n\n聊的過程中也談到了自己的過去經歷，Eric 以引導者的角色，提供了不同的切入方式，讓我有機會重新去靠近內心那個小小孩。他也分享了自己的經歷，對我來說幫助很大。',
+    author: '— M.P.',
+    tag: '彩虹數字解讀'
   }
 };
 function openReviewSticky(key) {
