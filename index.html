@@ -492,20 +492,20 @@ body.en-mode .service-desc {
 
 .about-sig {
   margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
+  padding-top: 0;
   font-family: var(--hand);
   font-size: 1.1rem;
   color: var(--ink-mid);
-  line-height: 1.8;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
 .about-sig-sub {
-  font-family: var(--serif-zh);
-  font-size: 0.72rem;
+  font-family: var(--serif-en);
+  font-size: 0.75rem;
   color: var(--ink-soft);
-  letter-spacing: 0.04em;
-  margin-top: 0.3rem;
-  font-style: normal;
+  font-style: italic;
 }
 
 /* ── 4. Services ── */
@@ -759,6 +759,75 @@ span.en, a.en { display: none; }
 body.en-mode span.zh, body.en-mode a.zh { display: none; }
 body.en-mode span.en, body.en-mode a.en { display: inline; }
 
+/* ── Booking Flow ── */
+.booking-flow {
+  margin-bottom: 2.5rem;
+}
+.booking-flow-title {
+  font-family: var(--title-zh);
+  font-size: 0.85rem;
+  color: var(--ink-mid);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+}
+.bflow-steps {
+  display: flex;
+  flex-direction: column;
+}
+.bflow-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  position: relative;
+}
+.bflow-num {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif-en);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+  z-index: 1;
+}
+.bflow-line {
+  position: absolute;
+  left: 12px;
+  top: 26px;
+  width: 1px;
+  height: calc(100%);
+  background: var(--rule);
+}
+.bflow-content {
+  padding-bottom: 1.2rem;
+  flex: 1;
+}
+.bflow-main {
+  font-family: var(--serif-zh);
+  font-size: 0.88rem;
+  color: var(--ink);
+  padding-top: 0.25rem;
+  line-height: 1.6;
+}
+.bflow-sub {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 0.15rem;
+}
+.bflow-note {
+  font-family: var(--serif-en);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+}
+
 /* ── 6. Contact ── */
 .contact-intro {
   font-size: 0.92rem;
@@ -904,18 +973,17 @@ footer {
   <h2 class="story-title en">The Story Behind The Roots Hollow</h2>
   <div class="story-body zh">
     <p>「樹根樹洞」的 Logo 設計靈感，來自一次催眠體驗。</p>
-    <p>在那次經驗中，一棵大樹出現在畫面中。它與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
+    <p>在那次經驗中，一棵大樹出現在畫面中。大樹與周圍的所有生命，共同形成一個共生的整體——那是一個祥和而有序的國度，沒有激情，也沒有責任，卻充滿了單純的慈愛、關懷、感激與喜悅。</p>
     <div class="story-expand" id="storyExpandZh">
-      <p>深植於土裡的樹根，象徵著連結，也代表那些被反覆梳理、誠實面對並整合過的生命經驗。樹根在地底彼此相連，與所有生命交換養分、感知彼此，共同維持整個系統的平衡。</p>
-      <p>這棵大樹只是單純地佇立在那裡，對這片土地上的一切懷著感恩與關愛。大樹的存在，並沒有任何指引或干預，而是靜靜地站在那裡，以陪伴與守護的姿態，讓這個國度中的所有生命，自然地生出安全感。</p>
+      <p style="margin-top:1.2em;">深植於土裡的樹根，象徵著連結，也代表那些被反覆梳理、誠實面對並整合過的生命經驗。樹根在地底彼此相連，與所有生命交換養分、感知彼此，共同維持整個系統的平衡。</p>
+      <p>這棵大樹只是單純地佇立在那裡，對這片土地上的一切懷著感恩與關愛。大樹的存在，並沒有任何指引或干預，而是靜靜地站在那裡，以陪伴與守護的姿態，讓這個國度中的所有生命，自然地感到心安。</p>
       <p>在大樹的背後，也有一個默默守護的存在——月亮。月亮象徵陰性的守護力量，亦提供一種形而上的指引與方向：不是告訴大樹該做什麼，而是在循環與節奏之中，讓它保持對時機與自身位置的覺知。</p>
       <p class="story-verse">於是，<br>月亮守護著大樹，<br>大樹守護著那片土地。</p>
       <p>樹洞，代表一個可以讓來訪者安心傾吐的空間。樹根，則象徵各種交織的可能與連結。在樹根樹洞，人們或許會發現日常中未曾留意的細節，讓更多感受浮現，使內在的聲音，在不被干擾的狀態中逐漸清晰。</p>
       <p>蝴蝶，象徵每一位來訪的你。蝴蝶的出現，並不是被創造的結果，而是當環境準備好之後，自然而然發生的蛻變。</p>
       <p class="story-verse">歡迎來到樹根樹洞，<br>等你來，和樹洞說說話。</p>
       <div class="about-sig">
-        — Eric CH
-        <div class="about-sig-sub">樹根樹洞 / The Roots Hollow &nbsp;·&nbsp; 01.15.2026</div>
+        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
       </div>
     </div>
     <button class="toggle-btn" onclick="toggleStoryZh()">
@@ -932,8 +1000,7 @@ footer {
       <p class="story-verse">The moon guards the tree.<br>The tree guards the land.</p>
       <p>The hollow is the space where you can speak freely. The roots are the many threads of possibility and connection. The butterfly is you — not created, but naturally emerging when the conditions are ready.</p>
       <div class="about-sig">
-        — Eric CH
-        <div class="about-sig-sub">The Roots Hollow &nbsp;·&nbsp; 01.15.2026</div>
+        — Eric CH <span class="about-sig-sub">· 01.15.2026</span>
       </div>
     </div>
     <button class="toggle-btn" onclick="toggleStoryEn()">
@@ -966,16 +1033,16 @@ footer {
     <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
     <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來成為幼兒特教與蒙特梭利老師，在教室裡陪伴孩子和家長多年。</p>
     <div class="about-expand" id="aboutExpandZh">
-      <p>理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
-      <p>有一件事始終沒變——我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式——一種不把「我的答案」放進別人生命裡的方式。</p>
-      <p>2024 年下半年，我似乎遇到人生中最大的挑戰。人際、感情、人生方向，以及對母親離世的悲傷，同時交疊，讓我長時間處在不快樂的狀態而不自知。理智上，我以為自己理解了這一切的發生，也以為自己已經接受了；但身體與內在好像還是被忽略著。那段時間，我變得容易生氣，作息失衡，明明知道狀況不對，卻只是停留在「腦袋裡的理解」，沒有真正回應、理解、陪伴，甚至接受當時的自己。</p>
-      <p>2024 年底，感恩節前夕，一次重大的人生挫折迫使我停下來，開始面對自己的內在。開始諮商、照顧身體、放慢節奏，也允許自己好好睡覺。</p>
-      <p>在經歷種種困惑以及對未來的迷惘中，我接觸到了催眠。我帶著許多問題進入催眠，但過程中，沒有任何一個問題被直接回答。然而，我卻清楚感覺到自己被療癒了。潛意識讓我看到了當下最重要的課題，讓我釋放原本的糾結，也明白那些問題並不是要我放下或放棄，而是那時候的我不需要再被它們卡住。真正重要的，是回應自己的內在，去做該做的事。</p>
-      <p>也正是在那次體驗中，我覺得我找到了對我來說最完美的助人工具——催眠。在催眠裡，答案不是被告知的，而是由你自己看見的。催眠師不是給答案的人，而是陪你走進內在的伴遊。</p>
-      <p>如果你正在卡住、迷惘，或只是想更靠近自己——歡迎來到樹根樹洞。</p>
+      <p style="margin-top:1.2em;">理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
+      <p>有一件事始終沒變 — 我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式，一種不把「我的答案」放進別人生命裡的方式。</p>
+      <p>2024 年下半年，我似乎遇到人生中最大的挑戰。人際、感情、職涯、人生方向，以及對母親離世的悲傷，同時交疊，讓我長時間處在不快樂的狀態而不自知。</p>
+      <p>理智上，我以為自己理解這一切的發生，也以為自己已經接受了；但身體與內在好像還是被忽略著。那段時間，我變得容易生氣，作息失衡，明明知道狀況不對，卻只是停留在「腦袋裡的理解」，沒有真正回應、理解、陪伴，甚至接受當時的自己。</p>
+      <p>2024 年底，感恩節前夕，一次重大的工作挫折迫使我停下來，開始面對自己的內在。開始諮商、照顧身體、放慢節奏，也允許自己好好睡覺。</p>
+      <p>在經歷種種困惑以及對未來的迷惘中，我接觸到了催眠。我帶著許多問題進入催眠，但過程中，其實沒有任何一個問題直接被回答。然而，我卻清楚感覺到自己被療癒了。潛意識讓我看到了當下最重要的課題，讓我釋放原本的糾結，也明白那些問題並不是要我放下或放棄，而是那時候的我不需要再被它們卡住。真正重要的，是回應自己的內在，去做該做的事。</p>
+      <p>也正是在那次體驗中，我覺得我找到了對我來說最完美的助人工具 — 催眠。在催眠體驗裡，答案不是被告知的，而是你自己親自看見或感覺到的。</p>
+      <p>催眠師不是給答案的人，而是陪你走進內在的伴遊。<br>如果你正在面臨一些迷惘、困惑、關卡，或只是想更靠近自己 — 歡迎來到樹根樹洞。</p>
       <div class="about-sig">
-        — Eric CH
-        <div class="about-sig-sub">Certified NGH Hypnotist (ID #95080) &nbsp;·&nbsp; 01.11.2026</div>
+        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
       </div>
     </div>
     <button class="toggle-btn" onclick="toggleAboutZh()">
@@ -994,8 +1061,7 @@ footer {
       <p>That's when I knew: this is how I want to work with people. In hypnosis, the answers aren't given to you. They're discovered by you. The practitioner doesn't lead you somewhere — they walk with you as you find your own way in.</p>
       <p>If you're feeling stuck, uncertain, or simply want to come closer to yourself — you're welcome here.</p>
       <div class="about-sig">
-        — Eric CH
-        <div class="about-sig-sub">Certified NGH Hypnotist (ID #95080) &nbsp;·&nbsp; 01.11.2026</div>
+        — Eric CH <span class="about-sig-sub">· 01.11.2026</span>
       </div>
     </div>
     <button class="toggle-btn" onclick="toggleAboutEn()">
@@ -1110,13 +1176,13 @@ footer {
   <p class="story-title-en zh" style="margin-bottom:1.2rem;">Rainbow Numerology</p>
   <p class="story-title-en en" style="margin-bottom:1.2rem;">Enter your birthdate to find out</p>
 
-  <p class="story-body zh" style="margin-bottom:2rem;">數字學是我目前最常使用的命理工具。你或許聽過生命靈數，聽過「你是幾號人」。透過生日裡八個數字的計算與解讀，可以看見許多你還沒有意識到的自己。先來算算看，你是幾號人。</p>
+  <p class="story-body zh" style="margin-bottom:2rem;">彩虹數字學是我目前最常使用的命理工具。你或許聽過生命靈數，或「你是幾號人」這個說法，這些都是數字學的概念。透過生日裡八個數字的計算與解讀，可以看見許多你還沒有意識到的自己。先來算算看，你是幾號人。</p>
   <p class="story-body en" style="margin-bottom:2rem;">Numerology is the tool I reach for most often in my practice. You may have heard of life path numbers — the idea that your birthdate holds a pattern worth paying attention to. Enter your birthday below and see which number you are.</p>
 
   <p class="num-label zh">輸入你的西元生日</p>
   <p class="num-label en">Enter your date of birth</p>
   <div class="num-input-row">
-    <input type="text" id="numInput" class="num-input" placeholder="1990 / 06 / 15" maxlength="10">
+    <input type="text" id="numInput" class="num-input" placeholder="YYYY / MM / DD" maxlength="10">
     <button class="num-btn" onclick="calcNum()"><span class="zh">計算</span><span class="en">Go</span></button>
   </div>
   <p class="num-hint zh">格式：年 / 月 / 日</p>
@@ -1183,7 +1249,7 @@ footer {
   white-space: nowrap;
 }
 .review-body {
-  font-size: 0.88rem;
+  font-size: 0.95rem;
   color: var(--ink-mid);
   line-height: 2;
   flex: 1;
@@ -1425,6 +1491,74 @@ footer {
       <span class="c-val en">Home Studio · Bed-Stuy, Brooklyn NY 11221<br>Session Space · Fidi Creatives, Manhattan NY 10038<br>Online · Google Meet</span>
     </li>
   </ul>
+
+  <div class="booking-flow zh">
+    <p class="booking-flow-title">預約流程</p>
+    <div class="bflow-steps">
+      <div class="bflow-step">
+        <div class="bflow-num">1</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">填寫預約表單 <span class="bflow-sub">或 Instagram 私訊 @eric.hypnotist</span></p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">2</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">24 小時內確認時間與細節</p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">3</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">72 小時內完成付款 <span class="bflow-sub">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</span></p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">4</div>
+        <div class="bflow-content">
+          <p class="bflow-main">預約正式成立</p>
+        </div>
+      </div>
+    </div>
+    <p class="bflow-note">台灣及海外來訪者請私訊確認匯款資訊。</p>
+  </div>
+
+  <div class="booking-flow en">
+    <p class="booking-flow-title">How to Book</p>
+    <div class="bflow-steps">
+      <div class="bflow-step">
+        <div class="bflow-num">1</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">Fill out the booking form <span class="bflow-sub">or DM on Instagram @eric.hypnotist</span></p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">2</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">I'll confirm within 24 hours</p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">3</div>
+        <div class="bflow-line"></div>
+        <div class="bflow-content">
+          <p class="bflow-main">Full payment within 72 hours <span class="bflow-sub">Venmo @eric12356 · Zelle eric.wp.cheng@gmail.com</span></p>
+        </div>
+      </div>
+      <div class="bflow-step">
+        <div class="bflow-num">4</div>
+        <div class="bflow-content">
+          <p class="bflow-main">Your booking is confirmed</p>
+        </div>
+      </div>
+    </div>
+    <p class="bflow-note">For clients outside the US, please message for payment details.</p>
+  </div>
 
   <div class="contact-cta">
     <a href="https://forms.gle/msVbxuxgZskDvA8N8" target="_blank" class="cta-btn cta-btn-primary zh">預約表單 · Service Booking</a>
