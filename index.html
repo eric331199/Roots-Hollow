@@ -460,28 +460,18 @@ body.en-mode .service-desc {
   border-radius: 10px;
 }
 .cred-item {
-  display: flex;
-  gap: 0.3rem;
-  align-items: baseline;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--paper-3);
   font-size: 0.78rem;
   font-family: 'Caveat', 'LXGW WenKai TC', serif;
   color: var(--ink-mid);
   line-height: 1.6;
+  text-align: center;
 }
 .cred-item:first-child { border-top: 1px solid var(--paper-3); }
 .cred-item > span { display: block; }
-.cred-dot {
-  display: none;
-}
-.cred-item::before {
-  content: '–';
-  font-family: 'Caveat', cursive;
-  color: var(--clay);
-  flex-shrink: 0;
-  margin-right: 0.2rem;
-}
+.cred-dot { display: none; }
+.cred-item::before { content: none; }
 .about-body {
   font-size: 0.92rem;
   color: var(--ink-mid);
@@ -661,6 +651,8 @@ body.en-mode .num-btn {
 }
 .num-input {
   flex: 1;
+  min-width: 0;
+  max-width: calc(100% - 5rem);
   padding: 0.7rem 1rem;
   border: 1px solid var(--rule);
   border-radius: 8px;
@@ -1033,7 +1025,7 @@ footer {
   <div class="about-body zh">
     <p>你好，我是 Eric CH，Cheng 的 C，Hypnotist 的 H；</p>
     <p>是樹根樹洞 The Roots Hollow 的催眠師，也是來訪者的內在工作引導者。</p>
-    <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來成為幼兒特教與蒙特梭利老師，在教室裡陪伴孩子和家長多年。</p>
+    <p>我來自台灣，目前住在紐約布魯克林。我的人生走過很多不同的領域：資工、企管、專案管理，後來又進修了幼兒特教與蒙特梭利，成為幼稚園老師在教室裡陪伴孩子和家長多年。</p>
     <div class="about-expand" id="aboutExpandZh">
       <p style="margin-top:1.2em;">理工科教我追求「唯一解」，商管訓練我尋找迎合多數人的「滿意解」，而教育現場，讓我發現每一個獨立個體都有各自的聲音和需求。</p>
       <p>有一件事始終沒變 — 我很喜歡人，喜歡觀察，喜歡理解，也很喜歡幫助人。朋友常找我聊天、問問題，有時連不太熟的人，也會不自覺地向我敞開，聊起學業與人生。但我慢慢明白，再怎麼理解，我也無法真正經歷對方的生命或處境。於是我開始尋找一種方式，一種不把「我的答案」放進別人生命裡的方式。</p>
@@ -1084,7 +1076,7 @@ footer {
     <div class="service-header">
       <p class="service-name zh">整合式催眠深層探索</p><p class="service-name en">Integrated Inner Work</p>
       <div class="service-meta">
-        <p class="service-price-tag">$320</p>
+        <p class="service-price-tag">$320 USD</p>
         <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
         <p class="service-duration">180 mins</p>
       </div>
@@ -1101,7 +1093,7 @@ footer {
     <div class="service-header">
       <p class="service-name zh">內在小屋探索</p><p class="service-name en">Inner House Exploration</p>
       <div class="service-meta">
-        <p class="service-price-tag">$220</p>
+        <p class="service-price-tag">$220 USD</p>
         <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
         <p class="service-duration">120 mins</p>
       </div>
@@ -1116,7 +1108,7 @@ footer {
     <div class="service-header">
       <p class="service-name zh">時間回溯探索</p><p class="service-name en">Timeline Regression</p>
       <div class="service-meta">
-        <p class="service-price-tag">$220</p>
+        <p class="service-price-tag">$220 USD</p>
         <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
         <p class="service-duration">120 mins</p>
       </div>
@@ -1131,7 +1123,7 @@ footer {
     <div class="service-header">
       <p class="service-name zh">正念式催眠放鬆</p><p class="service-name en">Hypnotic Mindful Relaxation</p>
       <div class="service-meta">
-        <p class="service-price-tag">$159</p>
+        <p class="service-price-tag">$159 USD</p>
         <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
         <p class="service-duration">90 mins</p>
       </div>
@@ -1146,7 +1138,7 @@ footer {
     <div class="service-header">
       <p class="service-name zh">生命藍圖解讀</p><p class="service-name en">Life Chart Reading</p>
       <div class="service-meta">
-        <p class="service-price-tag">$99</p>
+        <p class="service-price-tag">$99 USD</p>
         <span style="color:var(--rule);font-family:var(--serif-en);">/</span>
         <p class="service-duration">60 mins</p>
       </div>
