@@ -17,9 +17,9 @@ html { scroll-behavior:smooth; }
 
 /* ── Tokens ── */
 :root {
-  --paper:   #f5f0e8;
-  --paper-2: #ede6d6;
-  --paper-3: #e4dbc8;
+  --paper:   #fdfbf7;
+  --paper-2: #f7f2e8;
+  --paper-3: #ede5d5;
   --ink:     #2c251a;
   --ink-mid: #6b5c48;
   --ink-soft:#a0917e;
@@ -1671,12 +1671,20 @@ function setLang(lang) {
     document.body.classList.add('en-mode');
     document.getElementById('btnEn').classList.add('active');
     document.getElementById('btnZh').classList.remove('active');
+    history.replaceState(null, '', '?lang=en');
   } else {
     document.body.classList.remove('en-mode');
     document.getElementById('btnZh').classList.add('active');
     document.getElementById('btnEn').classList.remove('active');
+    history.replaceState(null, '', window.location.pathname);
   }
 }
+
+// 頁面載入時讀取 ?lang=en
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('lang') === 'en') setLang('en');
+})();
 
 // Toggle story ZH
 function toggleStoryZh() {
